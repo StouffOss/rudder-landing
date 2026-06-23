@@ -75,8 +75,9 @@
     .nav-seats{display:none!important}
     .nav-cta{font-size:11px!important;padding:8px 13px!important}
 
-    .screen-scroll-wrap{overflow:hidden!important}
+    .screen-scroll-wrap{overflow:hidden!important;border-radius:14px!important}
     .screen-chip{display:none!important}
+    .screen-inner{padding:16px!important}
 
     .edge-grid{grid-template-columns:1fr!important}
     .edge-sticky{position:static!important;top:auto!important;margin-bottom:clamp(32px,4vw,48px)!important}
@@ -713,21 +714,6 @@
   window.addEventListener('scroll',update,{passive:true});
   update();
 
-  // Scale product screen to fit on small viewports (zoom affects layout, unlike transform)
-  function scaleScreen(){
-    const wrap=document.querySelector('.screen-scroll-wrap');
-    const inner=document.querySelector('.screen-inner');
-    if(!wrap||!inner) return;
-    inner.style.zoom='';
-    inner.style.width='';
-    if(window.innerWidth>=900) return;
-    const NATURAL_W=1200;
-    const scale=wrap.clientWidth/NATURAL_W;
-    inner.style.width=NATURAL_W+'px';
-    inner.style.zoom=scale;
-  }
-  window.addEventListener('resize',scaleScreen);
-  scaleScreen();
 })();
 </script>
 </body>
