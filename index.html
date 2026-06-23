@@ -75,8 +75,7 @@
     .nav-seats{display:none!important}
     .nav-cta{font-size:11px!important;padding:8px 13px!important}
 
-    .screen-scroll-wrap{overflow-x:auto!important;-webkit-overflow-scrolling:touch!important;padding-bottom:12px!important}
-    .screen-inner{min-width:860px!important}
+    .screen-scroll-wrap{overflow:hidden!important}
     .screen-chip{display:none!important}
 
     .edge-grid{grid-template-columns:1fr!important}
@@ -713,6 +712,28 @@
 
   window.addEventListener('scroll',update,{passive:true});
   update();
+
+  // Scale product screen to fit on small viewports
+  function scaleScreen(){
+    const wrap=document.querySelector('.screen-scroll-wrap');
+    const inner=document.querySelector('.screen-inner');
+    if(!wrap||!inner) return;
+    inner.style.transform='';
+    inner.style.width='';
+    wrap.style.height='';
+    if(window.innerWidth>=900) return;
+    const NATURAL_W=1200;
+    inner.style.width=NATURAL_W+'px';
+    requestAnimationFrame(function(){
+      const naturalH=inner.offsetHeight;
+      const scale=wrap.clientWidth/NATURAL_W;
+      inner.style.transform='scale('+scale+')';
+      inner.style.transformOrigin='top center';
+      wrap.style.height=(naturalH*scale)+'px';
+    });
+  }
+  window.addEventListener('resize',scaleScreen);
+  scaleScreen();
 })();
 </script>
 </body>
