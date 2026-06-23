@@ -713,24 +713,18 @@
   window.addEventListener('scroll',update,{passive:true});
   update();
 
-  // Scale product screen to fit on small viewports
+  // Scale product screen to fit on small viewports (zoom affects layout, unlike transform)
   function scaleScreen(){
     const wrap=document.querySelector('.screen-scroll-wrap');
     const inner=document.querySelector('.screen-inner');
     if(!wrap||!inner) return;
-    inner.style.transform='';
+    inner.style.zoom='';
     inner.style.width='';
-    wrap.style.height='';
     if(window.innerWidth>=900) return;
     const NATURAL_W=1200;
+    const scale=wrap.clientWidth/NATURAL_W;
     inner.style.width=NATURAL_W+'px';
-    requestAnimationFrame(function(){
-      const naturalH=inner.offsetHeight;
-      const scale=wrap.clientWidth/NATURAL_W;
-      inner.style.transform='scale('+scale+')';
-      inner.style.transformOrigin='top center';
-      wrap.style.height=(naturalH*scale)+'px';
-    });
+    inner.style.zoom=scale;
   }
   window.addEventListener('resize',scaleScreen);
   scaleScreen();
