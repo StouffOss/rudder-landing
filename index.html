@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rudder — Inspire like a maison. Operate like a machine.</title>
+<meta name="description" content="Rudder rebalances door to door — every transfer arbitrated in €, then executed within your rules. Revenue recovered from stock you already own.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;600;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#1f3a2e;font-family:'Lexend',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#faf7f1;overflow-x:hidden}
+  ::selection{background:#d6c89a;color:#14211b}
+
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+  @keyframes rUp{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes rFade{from{opacity:0}to{opacity:1}}
+  @keyframes glowPulse{0%,100%{opacity:.45}50%{opacity:.9}}
+  @keyframes lineFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  @keyframes rLeft{from{opacity:0;transform:translateX(-44px)}to{opacity:1;transform:translateX(0)}}
+  @keyframes rRight{from{opacity:0;transform:translateX(44px)}to{opacity:1;transform:translateX(0)}}
+  @keyframes rScale{from{opacity:0;transform:scale(.84)}to{opacity:1;transform:scale(1)}}
+  @keyframes seatPulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:1;transform:scale(1.35)}}
+  @keyframes nsPulse{0%{box-shadow:0 0 0 0 rgba(63,125,94,.45)}70%{box-shadow:0 0 0 5px rgba(63,125,94,0)}100%{box-shadow:0 0 0 0 rgba(63,125,94,0)}}
+  @keyframes nsFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+  @media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important}}
+
+  .scroll-animate{
+    animation:rUp .85s cubic-bezier(.2,.6,.2,1) both;
+    animation-timeline:view();
+    animation-range:entry 2% cover 28%;
+  }
+  .scroll-fade{
+    animation:rFade .8s both;
+    animation-timeline:view();
+    animation-range:entry 0% cover 22%;
+  }
+  .scroll-left{
+    animation:rLeft .9s cubic-bezier(.2,.6,.2,1) both;
+    animation-timeline:view();
+    animation-range:entry 0% cover 34%;
+  }
+  .scroll-right{
+    animation:rRight .9s cubic-bezier(.2,.6,.2,1) both;
+    animation-timeline:view();
+    animation-range:entry 0% cover 34%;
+  }
+  .scroll-scale{
+    animation:rScale 1s cubic-bezier(.2,.6,.2,1) both;
+    animation-timeline:view();
+    animation-range:entry 0% cover 42%;
+  }
+  .scroll-line{
+    animation:lineFill 1.2s cubic-bezier(.2,.6,.2,1) both;
+    transform-origin:left;
+    animation-timeline:view();
+    animation-range:entry 0% cover 38%;
+  }
+
+  .edge-row{transition:background .2s ease}
+  .edge-row:hover{background:rgba(214,200,154,.035)}
+
+  .cta-btn{transition:background .2s ease, transform .2s ease}
+  .cta-btn:hover{background:#e6dcb6!important;transform:translateY(-2px)}
+
+  .oss-link{transition:opacity .2s ease;opacity:.92}
+  .oss-link:hover{opacity:1}
+</style>
+</head>
+<body>
+<div style="position:relative;background:#1f3a2e;color:#faf7f1">
+
+  <!-- NAV -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:90;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,52px);mix-blend-mode:difference">
+    <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+      <span style="width:9px;height:9px;background:#fff;border-radius:1px;transform:rotate(45deg);display:inline-block"></span>
+      <span style="font-size:18px;font-weight:600;letter-spacing:.02em;color:#fff">Rudder</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:18px">
+      <span style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#fff">
+        <span style="width:6px;height:6px;border-radius:999px;background:#fff;display:inline-block;animation:seatPulse 2.4s ease-in-out infinite"></span>2 pilot seats left
+      </span>
+      <a href="https://calendar.app.google/Ge5XpponypEPQrYH9" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;border:1px solid #fff;padding:9px 16px;border-radius:999px;text-decoration:none">Discover Rudder</a>
+    </div>
+  </nav>
+
+  <!-- ====== STORY: scroll-scrubbed hero ====== -->
+  <div id="top" id="story-wrap" style="position:relative;height:600vh">
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden;background:#1f3a2e">
+      <video autoplay muted loop playsinline aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;z-index:0;pointer-events:none">
+        <source src="images/cta-bg.mp4" type="video/mp4">
+      </video>
+      <div style="position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(115% 85% at 50% 48%,rgba(10,15,12,.62),rgba(10,15,12,.46) 55%,rgba(10,15,12,.74))"></div>
+      <div style="position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(120% 100% at 50% 50%,transparent 52%,rgba(10,15,12,.88) 100%)"></div>
+
+      <!-- kinetic beats container -->
+      <div id="beats-container" style="position:absolute;inset:0;z-index:3;pointer-events:none">
+        <div class="beat" data-beat="0" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;opacity:1;transform:translateY(0);transition:opacity .55s ease,transform .7s cubic-bezier(.2,.6,.2,1)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(10px,1.1vw,13px);letter-spacing:.28em;text-transform:uppercase;color:#d6c89a;margin-bottom:22px">01 · The opportunity</div>
+          <div style="font-size:clamp(38px,6.4vw,104px);font-weight:700;line-height:1.0;letter-spacing:-.03em;color:#faf7f1;max-width:16ch;text-wrap:balance">Past a few hundred doors, you fly blind.</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(13px,1.4vw,18px);letter-spacing:.02em;color:#9aa79f;margin-top:26px;max-width:40ch">Hundreds of doors, moving every day. One allocation up front, then guesswork all season.</div>
+        </div>
+        <div class="beat" data-beat="1" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .7s cubic-bezier(.2,.6,.2,1)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(10px,1.1vw,13px);letter-spacing:.28em;text-transform:uppercase;color:#d6c89a;margin-bottom:22px">02 · The opportunity</div>
+          <div style="font-size:clamp(38px,6.4vw,104px);font-weight:700;line-height:1.0;letter-spacing:-.03em;color:#faf7f1;max-width:16ch;text-wrap:balance">The signals are there. No one is listening.</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(13px,1.4vw,18px);letter-spacing:.02em;color:#9aa79f;margin-top:26px;max-width:40ch">1,000+ field signals a week. None aggregate. None get actioned.</div>
+        </div>
+        <div class="beat" data-beat="2" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .7s cubic-bezier(.2,.6,.2,1)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(10px,1.1vw,13px);letter-spacing:.28em;text-transform:uppercase;color:#d6c89a;margin-bottom:22px">03 · Meet Rudder</div>
+          <div style="font-size:clamp(34px,5.4vw,88px);font-weight:700;line-height:1.0;letter-spacing:-.03em;color:#faf7f1;max-width:18ch;text-wrap:balance">One signal, one system, for the entire network.</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(13px,1.4vw,18px);letter-spacing:.02em;color:#9aa79f;margin-top:26px;max-width:40ch">It plugs in on top of your stack and reads every door, live. No migration.</div>
+        </div>
+        <div class="beat" data-beat="3" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .7s cubic-bezier(.2,.6,.2,1)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(10px,1.1vw,13px);letter-spacing:.28em;text-transform:uppercase;color:#d6c89a;margin-bottom:22px">04 · How it works</div>
+          <div style="font-size:clamp(38px,6.4vw,104px);font-weight:700;line-height:1.0;letter-spacing:-.03em;color:#faf7f1;max-width:16ch;text-wrap:balance">From blind to live.</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(13px,1.4vw,18px);letter-spacing:.02em;color:#9aa79f;margin-top:26px;max-width:40ch">Every door finally pilotable. One loop. 100% of the network.</div>
+        </div>
+        <div class="beat" data-beat="4" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .7s cubic-bezier(.2,.6,.2,1)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(10px,1.1vw,13px);letter-spacing:.28em;text-transform:uppercase;color:#d6c89a;margin-bottom:22px">05 · The payoff</div>
+          <div style="font-size:clamp(38px,6.4vw,104px);font-weight:700;line-height:1.0;letter-spacing:-.03em;color:#faf7f1;max-width:16ch;text-wrap:balance">It acts. Every move priced in €.</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(13px,1.4vw,18px);letter-spacing:.02em;color:#9aa79f;margin-top:26px;max-width:40ch">Margin gained vs. cost to move it. Arbitrated, then executed within your rules.</div>
+        </div>
+      </div>
+
+      <!-- scroll hint -->
+      <div id="scroll-hint" style="position:absolute;left:50%;bottom:34px;z-index:3;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:1;transition:opacity .5s ease;pointer-events:none">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#7f8c84">Scroll to run the loop</span>
+        <span style="color:#d6c89a;font-size:16px;animation:bob 1.6s ease-in-out infinite">↓</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== PRODUCT SCREEN ====== -->
+  <section id="screen" style="position:relative;overflow:hidden;padding:clamp(90px,11vw,160px) clamp(18px,4vw,52px);background:#1f3a2e;border-top:1px solid rgba(214,200,154,.12)">
+    <div style="max-width:1180px;margin:0 auto;position:relative;z-index:2">
+      <div class="scroll-fade" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#d6c89a;margin-bottom:20px">The cockpit</div>
+      <h2 class="scroll-animate" style="margin:0 0 22px;font-size:clamp(34px,5.4vw,80px);font-weight:700;line-height:1.0;letter-spacing:-.03em;max-width:15ch">Stock moves to <span style="color:#d6c89a">where it sells.</span></h2>
+      <p class="scroll-animate" style="margin:0;font-size:clamp(15px,1.6vw,20px);line-height:1.5;color:#9aa79f;max-width:56ch;animation-delay:.08s">Rudder rebalances door to door &mdash; every transfer arbitrated in &euro;, then executed within your rules. Revenue recovered from stock you already own.</p>
+    </div>
+
+    <!-- floating product window -->
+    <div style="position:relative;z-index:2;max-width:1240px;margin:clamp(44px,5.5vw,80px) auto 0">
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:90%;height:128%;border-radius:999px;background:radial-gradient(circle,rgba(214,200,154,.13),transparent 62%);pointer-events:none;animation:glowPulse 9s ease-in-out infinite"></div>
+      <div class="scroll-scale">
+        <!-- REBALANCING SCREEN (inlined) -->
+        <div style="position:relative;width:100%;display:flex;align-items:center;justify-content:center;padding:36px 30px;box-sizing:border-box;font-family:'Lexend',system-ui,sans-serif;font-weight:500">
+          <div style="position:relative;width:100%;max-width:1180px">
+            <div style="display:flex;background:#faf7f1;border-radius:14px;overflow:hidden;box-shadow:0 44px 100px -30px rgba(0,0,0,.55),0 12px 30px -16px rgba(0,0,0,.36);border:1px solid rgba(255,255,255,.06)">
+              <!-- sidebar -->
+              <aside style="width:198px;flex-shrink:0;background:#ffffff;border-right:1px solid #ece4d4;padding:18px 12px;display:flex;flex-direction:column">
+                <div style="display:flex;align-items:center;padding:2px 8px 16px">
+                  <span style="font-weight:700;font-size:17px;letter-spacing:-.02em;color:#1a2620">Rudd<span style="color:#3f7d5e">er</span></span>
+                </div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#9a9f95;padding:6px 10px">&nbsp;</div>
+                <nav style="display:flex;flex-direction:column;gap:1px">
+                  <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg>
+                    <span style="font-size:12px;font-weight:400;color:#5a6660;letter-spacing:-.005em">Cockpit</span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><path d="M3 9 4.5 4h15L21 9"/><path d="M4 9v10h16V9"/><path d="M9 19v-5h6v5"/></svg>
+                    <span style="font-size:12px;font-weight:400;color:#5a6660;letter-spacing:-.005em">Network</span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+                    <span style="font-size:12px;font-weight:400;color:#5a6660;letter-spacing:-.005em">Assortment</span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px;background:#efe9dc">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#1a2620" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
+                    <span style="font-size:12px;font-weight:600;color:#1a2620;letter-spacing:-.005em">Rebalancing</span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    <span style="font-size:12px;font-weight:400;color:#5a6660;letter-spacing:-.005em">Field signal</span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="9" r="2.4"/><path d="M6 8.4v7.2M8.4 7.4A6 6 0 0 0 15.4 9"/></svg>
+                    <span style="font-size:12px;font-weight:400;color:#5a6660;letter-spacing:-.005em">Memory</span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    <span style="font-size:12px;font-weight:400;color:#5a6660;letter-spacing:-.005em">Rules library</span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>
+                    <span style="font-size:12px;font-weight:400;color:#5a6660;letter-spacing:-.005em">Settings</span>
+                  </div>
+                </nav>
+              </aside>
+              <!-- main -->
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+                <div style="height:52px;display:flex;align-items:center;gap:10px;padding:0 22px;border-bottom:1px solid #ece4d4">
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#9a9f95;letter-spacing:.03em">Cockpit · <span style="color:#1a2620;font-weight:600">Rebalancing</span> · EMEA</span>
+                  <span style="margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#5a6660;border:1px solid #ece4d4;border-radius:999px;padding:4px 11px">
+                    <span style="width:6px;height:6px;border-radius:999px;background:#3f7d5e;animation:nsPulse 2.2s infinite"></span>Live · Q2 2026
+                  </span>
+                </div>
+                <div style="padding:22px 24px 24px;display:flex;flex-direction:column;gap:16px">
+                  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:22px">
+                    <div>
+                      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9a9f95">Door to door · arbitrated in €</div>
+                      <h1 style="font-size:22px;font-weight:700;letter-spacing:-.02em;color:#1a2620;margin:6px 0 0;line-height:1.05">Rebalancing cockpit</h1>
+                    </div>
+                    <div style="display:flex;gap:8px">
+                      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:#5a6660;border:1px solid #ece4d4;border-radius:8px;padding:6px 11px">All categories</span>
+                      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:#5a6660;border:1px solid #ece4d4;border-radius:8px;padding:6px 11px">EMEA</span>
+                      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:#1a2620;background:#efe9dc;border:1px solid #e4dcc8;border-radius:8px;padding:6px 11px">Q2 2026</span>
+                    </div>
+                  </div>
+                  <!-- KPI row -->
+                  <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:14px">
+                    <div style="background:#1f3a2e;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column">
+                      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9fb0a6">Revenue generated · rebalancing</span>
+                      <div style="font-size:40px;font-weight:700;color:#d6c89a;letter-spacing:-.025em;line-height:1;margin-top:10px">+€5.0M</div>
+                      <div style="display:flex;gap:14px;margin-top:18px">
+                        <div><div style="font-size:11px;color:#9fb0a6;white-space:nowrap">Women's RTW</div><div style="font-size:18px;font-weight:600;color:#faf7f1;white-space:nowrap">+€2.4M</div></div>
+                        <div style="width:1px;background:rgba(255,255,255,.18)"></div>
+                        <div><div style="font-size:11px;color:#9fb0a6;white-space:nowrap">Women's Shoes</div><div style="font-size:18px;font-weight:600;color:#faf7f1;white-space:nowrap">+€1.6M</div></div>
+                        <div style="width:1px;background:rgba(255,255,255,.18)"></div>
+                        <div><div style="font-size:11px;color:#9fb0a6;white-space:nowrap">Men's RTW</div><div style="font-size:18px;font-weight:600;color:#faf7f1;white-space:nowrap">+€1.0M</div></div>
+                      </div>
+                    </div>
+                    <div style="background:#ffffff;border:1px solid #ece4d4;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column">
+                      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9a9f95">Conversion · sold / received</span>
+                      <div style="font-size:40px;font-weight:700;color:#3f7d5e;letter-spacing:-.025em;line-height:1;margin-top:10px">70%</div>
+                      <div style="display:flex;gap:14px;margin-top:18px">
+                        <div><div style="font-size:11px;color:#5a6660;white-space:nowrap">Women's RTW</div><div style="font-size:18px;font-weight:600;color:#3f7d5e">78%</div></div>
+                        <div style="width:1px;background:#ece4d4"></div>
+                        <div><div style="font-size:11px;color:#5a6660;white-space:nowrap">Women's Shoes</div><div style="font-size:18px;font-weight:600;color:#3f7d5e">72%</div></div>
+                        <div style="width:1px;background:#ece4d4"></div>
+                        <div><div style="font-size:11px;color:#5a6660;white-space:nowrap">Men's RTW</div><div style="font-size:18px;font-weight:600;color:#b8863c">52%</div></div>
+                      </div>
+                    </div>
+                    <div style="background:#ffffff;border:1px solid #ece4d4;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column">
+                      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9a9f95">Units rebalanced · this quarter</span>
+                      <div style="font-size:40px;font-weight:700;color:#1a2620;letter-spacing:-.025em;line-height:1;margin-top:10px">430<span style="font-size:24px;font-weight:600"> u</span></div>
+                      <div style="margin-top:18px">
+                        <div style="display:flex;height:13px;border-radius:999px;overflow:hidden;gap:2px">
+                          <div style="width:74%;background:#3f7d5e"></div><div style="width:26%;background:#eef0ea"></div>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;margin-top:9px;font-size:11.5px">
+                          <span style="color:#1a2620"><b style="color:#3f7d5e">320u</b> sold</span>
+                          <span style="color:#5a6660"><b style="color:#1a2620">110u</b> still in stock</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- lower zone -->
+                  <div style="display:grid;grid-template-columns:.92fr 1.28fr;gap:14px;align-items:start">
+                    <!-- SKU decisions -->
+                    <div style="background:#ffffff;border:1px solid #ece4d4;border-radius:14px;overflow:hidden">
+                      <div style="display:flex;align-items:center;gap:10px;padding:15px 20px;border-bottom:1px solid #ece4d4">
+                        <span style="font-size:15px;font-weight:600;color:#1a2620">Top rebalancing decisions · by SKU</span>
+                      </div>
+                      <div style="padding:2px 20px 14px">
+                        <div style="display:grid;grid-template-columns:1fr 44px 70px 42px;gap:10px;padding:11px 0 8px;border-bottom:1px solid #f2ecdf">
+                          <span></span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95;text-align:right">Units</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95;text-align:right">Revenue</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95;text-align:right">Conv</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:7px;padding:12px 0 2px;font-size:13px;font-weight:600;color:#3f7d5e">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="#3f7d5e" stroke-width="2" style="width:14px;height:14px"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 8h4v4"/></svg>Best
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 44px 70px 42px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #f7f2e8">
+                          <span style="font-size:13.5px;font-weight:600;color:#1a2620;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Jacket JEHAZ #2451</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5a6660;text-align:right">140u</span>
+                          <span style="font-size:13.5px;font-weight:700;color:#1a2620;text-align:right">+€110k</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:#3f7d5e;text-align:right">85%</span>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 44px 70px 42px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #f7f2e8">
+                          <span style="font-size:13.5px;font-weight:600;color:#1a2620;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Pump SHKQR #2890</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5a6660;text-align:right">90u</span>
+                          <span style="font-size:13.5px;font-weight:700;color:#1a2620;text-align:right">+€100k</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:#3f7d5e;text-align:right">81%</span>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 44px 70px 42px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #f7f2e8">
+                          <span style="font-size:13.5px;font-weight:600;color:#1a2620;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Blazer JEMRT #2317</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5a6660;text-align:right">120u</span>
+                          <span style="font-size:13.5px;font-weight:700;color:#1a2620;text-align:right">+€95k</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:#3f7d5e;text-align:right">77%</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:7px;padding:14px 0 2px;margin-top:6px;border-top:1px solid #f2ecdf;font-size:13px;font-weight:600;color:#b8863c">Slow</div>
+                        <div style="display:grid;grid-template-columns:1fr 44px 70px 42px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #f7f2e8">
+                          <span style="font-size:13.5px;font-weight:600;color:#1a2620;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Coat CMRTU #2702</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5a6660;text-align:right">40u</span>
+                          <span style="font-size:13.5px;font-weight:700;color:#1a2620;text-align:right">+€7.0k</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:#b0503a;text-align:right">25%</span>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 44px 70px 42px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #f7f2e8">
+                          <span style="font-size:13.5px;font-weight:600;color:#1a2620;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Skirt SKWZT #2205</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5a6660;text-align:right">75u</span>
+                          <span style="font-size:13.5px;font-weight:700;color:#1a2620;text-align:right">+€7.5k</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:#b0503a;text-align:right">28%</span>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 44px 70px 42px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #f7f2e8">
+                          <span style="font-size:13.5px;font-weight:600;color:#1a2620;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Sandal SHZRN #2118</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5a6660;text-align:right">60u</span>
+                          <span style="font-size:13.5px;font-weight:700;color:#1a2620;text-align:right">+€8.0k</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:#b0503a;text-align:right">31%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- door-to-door moves -->
+                    <div style="background:#ffffff;border:1px solid #ece4d4;border-radius:14px;overflow:hidden">
+                      <div style="display:flex;align-items:center;gap:10px;padding:15px 22px;border-bottom:1px solid #ece4d4">
+                        <span style="font-size:15px;font-weight:600;color:#1a2620">Top moves · door to door</span>
+                        <span style="margin-left:auto;font-size:12.5px;color:#5a6660">Requested <b style="color:#1a2620">500</b> → executed <b style="color:#3f7d5e">430</b> · <b style="color:#3f7d5e">86%</b></span>
+                      </div>
+                      <div style="padding:6px 22px 10px">
+                        <div style="position:relative;height:8px;background:#eef0ea;border-radius:999px;margin:10px 0 6px"><div style="position:absolute;inset:0;width:86%;background:#3f7d5e;border-radius:999px"></div></div>
+                      </div>
+                      <div style="padding:0 22px 8px">
+                        <div style="display:grid;grid-template-columns:22px 1fr 132px 92px 48px;gap:14px;padding:8px 0;border-bottom:1px solid #f2ecdf">
+                          <span></span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95">Move</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95;text-align:right">Units</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95;text-align:right">Revenue</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95;text-align:right">Conv</span>
+                        </div>
+                        <div style="display:grid;grid-template-columns:22px 1fr 132px 92px 48px;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid #f7f2e8;font-weight:300">
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;color:#9a9f95">1</span>
+                          <span style="display:flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600;color:#1a2620;white-space:nowrap">
+                            <span style="font-weight:300">Verenne</span><span style="color:#d6c89a;font-size:15px">→</span><span style="font-weight:400">Calisse</span>
+                          </span>
+                          <span style="display:flex;align-items:center;gap:8px;justify-content:flex-end">
+                            <span style="width:46px;height:6px;background:#eef0ea;border-radius:999px;overflow:hidden"><span style="display:block;height:100%;width:100%;background:#3f7d5e;border-radius:999px"></span></span>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;color:#1a2620;width:34px;text-align:right">140</span>
+                          </span>
+                          <span style="font-size:14.5px;font-weight:700;color:#1a2620;text-align:right">+€110k</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;color:#3f7d5e;text-align:right">85%</span>
+                        </div>
+                        <div style="display:grid;grid-template-columns:22px 1fr 132px 92px 48px;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid #f7f2e8;font-weight:300">
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;color:#9a9f95">2</span>
+                          <span style="display:flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600;color:#1a2620;white-space:nowrap">
+                            <span style="font-weight:300">Ostenne</span><span style="color:#d6c89a;font-size:15px">→</span><span style="font-weight:400">Belrive</span>
+                          </span>
+                          <span style="display:flex;align-items:center;gap:8px;justify-content:flex-end">
+                            <span style="width:46px;height:6px;background:#eef0ea;border-radius:999px;overflow:hidden"><span style="display:block;height:100%;width:64%;background:#3f7d5e;border-radius:999px"></span></span>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;color:#1a2620;width:34px;text-align:right">90</span>
+                          </span>
+                          <span style="font-size:14.5px;font-weight:700;color:#1a2620;text-align:right">+€100k</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;color:#3f7d5e;text-align:right">81%</span>
+                        </div>
+                        <div style="display:grid;grid-template-columns:22px 1fr 132px 92px 48px;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid #f7f2e8;font-weight:300">
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;color:#9a9f95">3</span>
+                          <span style="display:flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600;color:#1a2620;white-space:nowrap">
+                            <span style="font-weight:300">Marolme</span><span style="color:#d6c89a;font-size:15px">→</span><span style="font-weight:400">Ardelle</span>
+                          </span>
+                          <span style="display:flex;align-items:center;gap:8px;justify-content:flex-end">
+                            <span style="width:46px;height:6px;background:#eef0ea;border-radius:999px;overflow:hidden"><span style="display:block;height:100%;width:86%;background:#3f7d5e;border-radius:999px"></span></span>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;color:#1a2620;width:34px;text-align:right">120</span>
+                          </span>
+                          <span style="font-size:14.5px;font-weight:700;color:#1a2620;text-align:right">+€95k</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;color:#3f7d5e;text-align:right">77%</span>
+                        </div>
+                        <div style="display:grid;grid-template-columns:22px 1fr 132px 92px 48px;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid #f7f2e8;font-weight:300">
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;color:#9a9f95">4</span>
+                          <span style="display:flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600;color:#1a2620;white-space:nowrap">
+                            <span style="font-weight:300">Sennac</span><span style="color:#d6c89a;font-size:15px">→</span><span style="font-weight:400">Corvane</span>
+                          </span>
+                          <span style="display:flex;align-items:center;gap:8px;justify-content:flex-end">
+                            <span style="width:46px;height:6px;background:#eef0ea;border-radius:999px;overflow:hidden"><span style="display:block;height:100%;width:79%;background:#3f7d5e;border-radius:999px"></span></span>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;color:#1a2620;width:34px;text-align:right">110</span>
+                          </span>
+                          <span style="font-size:14.5px;font-weight:700;color:#1a2620;text-align:right">+€88k</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;color:#3f7d5e;text-align:right">74%</span>
+                        </div>
+                        <div style="display:grid;grid-template-columns:22px 1fr 132px 92px 48px;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid #f7f2e8;font-weight:300">
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;color:#9a9f95">5</span>
+                          <span style="display:flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600;color:#1a2620;white-space:nowrap">
+                            <span style="font-weight:300">Vellance</span><span style="color:#d6c89a;font-size:15px">→</span><span style="font-weight:400">Lirenne</span>
+                          </span>
+                          <span style="display:flex;align-items:center;gap:8px;justify-content:flex-end">
+                            <span style="width:46px;height:6px;background:#eef0ea;border-radius:999px;overflow:hidden"><span style="display:block;height:100%;width:57%;background:#3f7d5e;border-radius:999px"></span></span>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;color:#1a2620;width:34px;text-align:right">80</span>
+                          </span>
+                          <span style="font-size:14.5px;font-weight:700;color:#1a2620;text-align:right">+€80k</span>
+                          <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;color:#3f7d5e;text-align:right">70%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- floating queued move -->
+            <div style="position:absolute;top:-26px;right:-26px;z-index:6;background:#14211b;border:1px solid rgba(214,200,154,.26);border-radius:13px;padding:15px 18px;min-width:272px;box-shadow:0 30px 64px -18px rgba(0,0,0,.55);animation:nsFloat 6s ease-in-out infinite">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+                <span style="width:8px;height:8px;background:#d6c89a"></span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#d6c89a">Next move · queued</span>
+              </div>
+              <div style="font-size:15px;font-weight:500;color:#faf7f1;letter-spacing:-.01em">Auvenne<span style="color:#d6c89a;margin:0 5px">→</span>Corvane</div>
+              <div style="display:flex;align-items:baseline;gap:9px;margin-top:9px">
+                <span style="font-size:25px;font-weight:300;color:#d6c89a;letter-spacing:-.02em">+€41,520</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#9fb0a6">expected · 2-wk lead</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PRODUCT EDGE ====== -->
+  <section id="edge" style="position:relative;padding:clamp(90px,11vw,160px) clamp(18px,4vw,52px);background:#1f3a2e;border-top:1px solid rgba(214,200,154,.12)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:0.82fr 1.18fr;gap:clamp(36px,6vw,96px);align-items:start">
+        <div style="position:sticky;top:88px">
+          <div class="scroll-fade" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#d6c89a;margin-bottom:22px">The product edge</div>
+          <h2 class="scroll-animate" style="margin:0 0 24px;font-size:clamp(34px,5vw,72px);font-weight:700;line-height:1.0;letter-spacing:-.03em">Not a dashboard. <span style="color:#d6c89a">An operator.</span></h2>
+          <p class="scroll-animate" style="margin:0;font-size:clamp(14px,1.4vw,17px);line-height:1.6;color:#9aa79f;max-width:30ch;animation-delay:.1s">Four things a dashboard can't do, and an operator does, every day.</p>
+        </div>
+        <div style="border-bottom:1px solid rgba(214,200,154,.14)">
+          <div class="edge-row" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,2.5vw,38px);padding:clamp(26px,3vw,38px) 4px;border-top:1px solid rgba(214,200,154,.14)">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(32px,3.4vw,52px);font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(214,200,154,.4);letter-spacing:-.02em;line-height:.9">01</div>
+            <div>
+              <div style="font-size:clamp(24px,2.6vw,36px);font-weight:700;letter-spacing:-.02em;color:#faf7f1;margin-bottom:10px">Model-free.</div>
+              <p style="margin:0;font-size:15px;line-height:1.55;color:#9aa79f;max-width:46ch">It never guesses demand. It learns which actions win on your live network, and repeats them.</p>
+            </div>
+          </div>
+          <div class="edge-row" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,2.5vw,38px);padding:clamp(26px,3vw,38px) 4px;border-top:1px solid rgba(214,200,154,.14)">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(32px,3.4vw,52px);font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(214,200,154,.4);letter-spacing:-.02em;line-height:.9">02</div>
+            <div>
+              <div style="font-size:clamp(24px,2.6vw,36px);font-weight:700;letter-spacing:-.02em;color:#faf7f1;margin-bottom:10px">It acts. <span style="color:#d6c89a">Within your rules.</span></div>
+              <p style="margin:0;font-size:15px;line-height:1.55;color:#9aa79f;max-width:46ch">Others recommend and wait for a human. Rudder executes the daily 80%, autonomously and traceably.</p>
+            </div>
+          </div>
+          <div class="edge-row" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,2.5vw,38px);padding:clamp(26px,3vw,38px) 4px;border-top:1px solid rgba(214,200,154,.14)">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(32px,3.4vw,52px);font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(214,200,154,.4);letter-spacing:-.02em;line-height:.9">03</div>
+            <div>
+              <div style="font-size:clamp(24px,2.6vw,36px);font-weight:700;letter-spacing:-.02em;color:#faf7f1;margin-bottom:10px">&euro; on every move.</div>
+              <p style="margin:0;font-size:15px;line-height:1.55;color:#9aa79f;max-width:46ch">Every transfer arbitrated: margin gain vs. cost, in euros. Never an abstract KPI.</p>
+            </div>
+          </div>
+          <div class="edge-row" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,2.5vw,38px);padding:clamp(26px,3vw,38px) 4px;border-top:1px solid rgba(214,200,154,.14)">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(32px,3.4vw,52px);font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(214,200,154,.4);letter-spacing:-.02em;line-height:.9">04</div>
+            <div>
+              <div style="font-size:clamp(24px,2.6vw,36px);font-weight:700;letter-spacing:-.02em;color:#faf7f1;margin-bottom:10px">Full network. Live.</div>
+              <p style="margin:0;font-size:15px;line-height:1.55;color:#9aa79f;max-width:46ch">Every door, every day, on top of your stack. No migration. No new system of record.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- three barriers fell -->
+      <div style="margin-top:clamp(56px,7vw,88px);padding-top:clamp(32px,4vw,48px);border-top:1px solid rgba(214,200,154,.14)">
+        <h3 class="scroll-animate" style="margin:0 0 16px;font-size:clamp(34px,5vw,72px);font-weight:700;line-height:1.04;letter-spacing:-.03em;color:#faf7f1;max-width:18ch">A year ago, this wasn't buildable. Three barriers just fell</h3>
+        <p class="scroll-animate" style="margin:0 0 clamp(40px,5vw,60px);font-size:clamp(15px,1.6vw,20px);line-height:1.5;color:#9aa79f;animation-delay:.08s">The window to move first is now open</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);column-gap:clamp(24px,3vw,48px);align-items:start">
+          <div class="scroll-animate">
+            <div style="font-size:clamp(20px,1.9vw,26px);font-weight:700;letter-spacing:-.01em;color:#faf7f1;margin-bottom:14px">Connectivity</div>
+            <p style="margin:0;font-size:15px;line-height:1.6;color:#9aa79f">APIs, event streams, modern data layers. Plugging SAP, WMS, POS into one loop is now commodity.</p>
+          </div>
+          <div class="scroll-animate" style="animation-delay:.08s">
+            <div style="font-size:clamp(20px,1.9vw,26px);font-weight:700;letter-spacing:-.01em;color:#faf7f1;margin-bottom:14px">Agentic AI</div>
+            <p style="margin:0;font-size:15px;line-height:1.6;color:#9aa79f">Agents perceive, decide, act — not just recommend. Execution is no longer the wall.</p>
+          </div>
+          <div class="scroll-animate" style="animation-delay:.16s">
+            <div style="font-size:clamp(20px,1.9vw,26px);font-weight:700;letter-spacing:-.01em;color:#faf7f1;margin-bottom:14px">Expert knowledge</div>
+            <p style="margin:0;font-size:15px;line-height:1.6;color:#9aa79f">Decision rules captured by observing the work, not by months of consulting interviews.</p>
+          </div>
+          <div style="margin-top:28px">
+            <div style="height:1px;background:rgba(214,200,154,.18);margin-bottom:18px"></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7f8c84;margin-bottom:12px">Used to be</div>
+            <div style="font-size:15px;line-height:1.5;color:#cdd6d0">12-month custom integration</div>
+          </div>
+          <div style="margin-top:28px">
+            <div style="height:1px;background:rgba(214,200,154,.18);margin-bottom:18px"></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7f8c84;margin-bottom:12px">Used to be</div>
+            <div style="font-size:15px;line-height:1.5;color:#cdd6d0">Prediction-only ML, with a human in every loop</div>
+          </div>
+          <div style="margin-top:28px">
+            <div style="height:1px;background:rgba(214,200,154,.18);margin-bottom:18px"></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7f8c84;margin-bottom:12px">Used to be</div>
+            <div style="font-size:15px;line-height:1.5;color:#cdd6d0">Knowledge died with the merchandiser leaving</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== METHOD ====== -->
+  <section id="method" style="position:relative;padding:clamp(90px,11vw,160px) clamp(18px,4vw,52px);background:#1f3a2e;border-top:1px solid rgba(214,200,154,.12)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div class="scroll-fade" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#d6c89a;margin-bottom:20px">The method</div>
+      <h2 class="scroll-animate" style="margin:0 0 22px;font-size:clamp(34px,5.4vw,80px);font-weight:700;line-height:1.0;letter-spacing:-.03em;max-width:19ch">From field signal to executed <span style="color:#d6c89a">&euro;</span>, automatically.</h2>
+      <p class="scroll-animate" style="margin:0 0 16px;font-family:'JetBrains Mono',monospace;font-size:clamp(13px,1.4vw,16px);line-height:1.6;color:#9aa79f;max-width:60ch;animation-delay:.08s">Data &rarr; intelligence &rarr; action &rarr; results, across four layers, on top of the stack you already run. <span style="color:#faf7f1">No migration. No new system of record.</span></p>
+      <div class="scroll-fade" style="font-family:'JetBrains Mono',monospace;font-size:clamp(12px,1.3vw,15px);letter-spacing:.04em;color:#d6c89a;margin-bottom:52px;animation-delay:.14s">connect &rarr; augment &rarr; encode &rarr; execute</div>
+      <div class="scroll-line" style="height:1px;background:linear-gradient(90deg,#d6c89a,rgba(214,200,154,.08));margin-bottom:30px"></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
+        <div class="scroll-animate" style="display:flex;flex-direction:column;background:#0d140f;border:1px solid rgba(214,200,154,.12);border-radius:14px;padding:clamp(20px,2vw,28px)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(30px,3vw,46px);font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(214,200,154,.42);letter-spacing:-.02em;line-height:1;margin-bottom:14px">01</div>
+          <div style="font-size:clamp(18px,1.6vw,22px);font-weight:700;letter-spacing:-.01em;color:#faf7f1;margin-bottom:16px">Connect</div>
+          <div style="flex:1;background:#0a0f0c;border:1px solid rgba(214,200,154,.1);border-radius:10px;padding:14px;margin-bottom:16px;min-height:104px">
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9aa79f;border:1px solid rgba(214,200,154,.18);border-radius:5px;padding:4px 8px">POS</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9aa79f;border:1px solid rgba(214,200,154,.18);border-radius:5px;padding:4px 8px">ERP</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9aa79f;border:1px solid rgba(214,200,154,.18);border-radius:5px;padding:4px 8px">APS</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9aa79f;border:1px solid rgba(214,200,154,.18);border-radius:5px;padding:4px 8px">Buying tool</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9aa79f;border:1px solid rgba(214,200,154,.18);border-radius:5px;padding:4px 8px">Excel</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#14211b;background:#d6c89a;font-weight:600;border-radius:5px;padding:4px 8px">+ Field signals</span>
+            </div>
+          </div>
+          <p style="margin:0;font-size:13px;line-height:1.5;color:#9aa79f"><span style="color:#d6c89a;font-weight:600">You get </span>the network view no silo can produce.</p>
+        </div>
+        <div class="scroll-animate" style="display:flex;flex-direction:column;background:#0d140f;border:1px solid rgba(214,200,154,.12);border-radius:14px;padding:clamp(20px,2vw,28px);animation-delay:.08s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(30px,3vw,46px);font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(214,200,154,.42);letter-spacing:-.02em;line-height:1;margin-bottom:14px">02</div>
+          <div style="font-size:clamp(18px,1.6vw,22px);font-weight:700;letter-spacing:-.01em;color:#faf7f1;margin-bottom:16px">Augment &amp; segment</div>
+          <div style="flex:1;background:#0a0f0c;border:1px solid rgba(214,200,154,.1);border-radius:10px;padding:14px;margin-bottom:16px;min-height:104px;display:flex;flex-direction:column;justify-content:center;gap:10px">
+            <div style="display:flex;justify-content:space-between;font-size:11.5px"><span style="color:#9aa79f">Transfer cost</span><span style="color:#d6c89a;font-weight:600;font-family:'JetBrains Mono',monospace">&euro; live</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11.5px"><span style="color:#9aa79f">Door potential</span><span style="color:#faf7f1;font-weight:600;font-family:'JetBrains Mono',monospace">scored</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11.5px"><span style="color:#9aa79f">Reliable on-hand</span><span style="color:#faf7f1;font-weight:600;font-family:'JetBrains Mono',monospace">rebuilt</span></div>
+          </div>
+          <p style="margin:0;font-size:13px;line-height:1.5;color:#9aa79f"><span style="color:#d6c89a;font-weight:600">You get </span>a live, true picture of every door.</p>
+        </div>
+        <div class="scroll-animate" style="display:flex;flex-direction:column;background:#0d140f;border:1px solid rgba(214,200,154,.12);border-radius:14px;padding:clamp(20px,2vw,28px);animation-delay:.12s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(30px,3vw,46px);font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(214,200,154,.42);letter-spacing:-.02em;line-height:1;margin-bottom:14px">03</div>
+          <div style="font-size:clamp(18px,1.6vw,22px);font-weight:700;letter-spacing:-.01em;color:#faf7f1;margin-bottom:16px">Encode the rules</div>
+          <div style="flex:1;background:#0a0f0c;border:1px solid rgba(214,200,154,.1);border-radius:10px;padding:14px;margin-bottom:16px;min-height:104px;display:flex;flex-direction:column;justify-content:center">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#d6c89a;margin-bottom:10px">Rule · model-free</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:16px;line-height:1.4;color:#faf7f1">"If a top door drops below 2 wks &amp; a B-door holds 12+, transfer when &euro;gain &gt; cost."</div>
+          </div>
+          <p style="margin:0;font-size:13px;line-height:1.5;color:#9aa79f"><span style="color:#d6c89a;font-weight:600">You get </span>your playbook executable at scale.</p>
+        </div>
+        <div class="scroll-animate" style="display:flex;flex-direction:column;background:#0d140f;border:1px solid rgba(214,200,154,.4);border-radius:14px;padding:clamp(20px,2vw,28px);box-shadow:0 0 50px rgba(214,200,154,.1);animation-delay:.16s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(30px,3vw,46px);font-weight:700;color:#d6c89a;letter-spacing:-.02em;line-height:1;margin-bottom:14px">04</div>
+          <div style="font-size:clamp(18px,1.6vw,22px);font-weight:700;letter-spacing:-.01em;color:#faf7f1;margin-bottom:16px">Execute</div>
+          <div style="flex:1;background:#0a0f0c;border:1px solid rgba(214,200,154,.25);border-radius:10px;padding:14px;margin-bottom:16px;min-height:104px;display:flex;flex-direction:column;justify-content:center">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#d6c89a">Transfer · auto</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.1em;color:#7bbf8e">WITHIN RULES</span>
+            </div>
+            <div style="font-size:12.5px;color:#cdd4ce;line-height:1.4">Move 14 units · Sennac &rarr; Corvane</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(22px,2.4vw,30px);font-weight:400;color:#d6c89a;margin-top:8px;letter-spacing:-.01em">+&euro;3,240 <span style="font-size:11px;color:#7f8c84">net of cost</span></div>
+          </div>
+          <p style="margin:0;font-size:13px;line-height:1.5;color:#9aa79f"><span style="color:#d6c89a;font-weight:600">You get </span>teams set strategy; Rudder runs the routine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CREDIBILITY ====== -->
+  <section id="trust" style="position:relative;overflow:hidden;padding:clamp(90px,11vw,160px) clamp(18px,4vw,52px);background:#1f3a2e;border-top:1px solid rgba(214,200,154,.12)">
+    <div style="position:absolute;top:4%;right:-8%;width:780px;height:780px;border-radius:999px;background:radial-gradient(circle,rgba(214,200,154,.10),transparent 62%);pointer-events:none;animation:glowPulse 9s ease-in-out infinite"></div>
+    <div style="max-width:1180px;margin:0 auto;position:relative;z-index:2">
+      <div class="scroll-fade" style="margin-bottom:30px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#d6c89a">Why trust us</span>
+      </div>
+      <div class="scroll-line" style="height:1px;background:linear-gradient(90deg,#d6c89a,rgba(214,200,154,.08));margin-bottom:clamp(34px,4.5vw,54px)"></div>
+      <p class="scroll-animate" style="margin:0 0 clamp(36px,4.5vw,56px);font-size:clamp(15px,1.5vw,20px);line-height:1.5;font-weight:500;letter-spacing:-.005em;color:#faf7f1">Built by a 15-year <span style="color:#d6c89a">Louis Vuitton / Saint Laurent</span> merchandising leader and a B2B SaaS GTM founder, backed by <span style="color:#d6c89a">OSS Ventures</span>, France's reference AI studio.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2vw,24px)">
+        <div class="scroll-left" style="background:#0d140f;border:1px solid rgba(214,200,154,.14);border-radius:18px;padding:clamp(26px,2.8vw,38px)">
+          <div style="display:flex;align-items:center;gap:18px;margin-bottom:20px">
+            <img src="images/founder-merch.png" alt="Aurore Malmenayde" style="width:84px;height:84px;border-radius:999px;object-fit:cover;flex:none;border:1px solid rgba(214,200,154,.35)">
+            <div>
+              <div style="font-size:clamp(18px,1.7vw,22px);font-weight:700;color:#faf7f1;letter-spacing:-.01em">Aurore Malmenayde</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#d6c89a;margin-top:6px">Advisor · Merchandising</div>
+            </div>
+          </div>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:#9aa79f">15 yrs in fashion &amp; luxury: Louis Vuitton, Zadig &amp; Voltaire, Saint Laurent. Ran buying &amp; allocation across 200-store networks. The exact problem Rudder solves, lived from the inside.</p>
+        </div>
+        <div class="scroll-right" style="background:#0d140f;border:1px solid rgba(214,200,154,.14);border-radius:18px;padding:clamp(26px,2.8vw,38px)">
+          <div style="display:flex;align-items:center;gap:18px;margin-bottom:20px">
+            <img src="images/founder-gtm.png" alt="Jean-Philippe Stouff" style="width:84px;height:84px;border-radius:999px;object-fit:cover;flex:none;border:1px solid rgba(214,200,154,.35)">
+            <div>
+              <div style="font-size:clamp(18px,1.7vw,22px);font-weight:700;color:#faf7f1;letter-spacing:-.01em">Jean-Philippe Stouff</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#d6c89a;margin-top:6px">Founder · GTM</div>
+            </div>
+          </div>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:#9aa79f">15+ yrs turning B2B SaaS into revenue. Two ventures co-founded, &euro;1.5M+ raised. Builds the commercial engine.</p>
+        </div>
+      </div>
+      <div class="scroll-fade" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:clamp(40px,5vw,60px);animation-delay:.1s">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#7f8c84">Backed by</span>
+        <a href="https://www.oss.ventures/" target="_blank" rel="noopener" class="oss-link" style="display:block;line-height:0">
+          <img src="images/oss-ventures-white-h.png" alt="OSS Ventures" style="height:19px;width:auto;display:block">
+        </a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(214,200,154,.12);border:1px solid rgba(214,200,154,.12);border-radius:16px;overflow:hidden;margin-top:clamp(28px,3.2vw,40px)">
+        <div class="scroll-animate" style="background:#0d140f;padding:clamp(24px,2.6vw,34px)">
+          <div style="font-size:clamp(30px,3vw,44px);font-weight:300;color:#d6c89a;letter-spacing:-.02em;line-height:1">20+</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7f8c84;letter-spacing:.04em;margin-top:12px">AI products with Tier-1 leaders</div>
+        </div>
+        <div class="scroll-animate" style="background:#0d140f;padding:clamp(24px,2.6vw,34px);animation-delay:.08s">
+          <div style="font-size:clamp(30px,3vw,44px);font-weight:300;color:#d6c89a;letter-spacing:-.02em;line-height:1">200-store</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7f8c84;letter-spacing:.04em;margin-top:12px">networks operated first-hand</div>
+        </div>
+        <div class="scroll-animate" style="background:#0d140f;padding:clamp(24px,2.6vw,34px);animation-delay:.16s">
+          <div style="font-size:clamp(30px,3vw,44px);font-weight:300;color:#d6c89a;letter-spacing:-.02em;line-height:1">12 wks</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7f8c84;letter-spacing:.04em;margin-top:12px">to a funded pilot result</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== MANIFESTO + CTA ====== -->
+  <section id="pilot" style="position:relative;padding:clamp(100px,12vw,190px) clamp(18px,4vw,52px);background:#1f3a2e;overflow:hidden;border-top:1px solid rgba(214,200,154,.12)">
+    <video autoplay muted loop playsinline aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.34;z-index:0;pointer-events:none">
+      <source src="images/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(125% 95% at 50% 50%,rgba(10,15,12,.58),rgba(10,15,12,.86))"></div>
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:980px;height:980px;border-radius:999px;background:radial-gradient(circle,rgba(214,200,154,.13),transparent 60%);pointer-events:none;z-index:1;animation:glowPulse 8s ease-in-out infinite"></div>
+    <div style="max-width:1000px;margin:0 auto;position:relative;z-index:2;text-align:center">
+      <h2 class="scroll-animate" style="margin:0 0 18px;line-height:1.0">
+        <span style="display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(44px,7vw,108px);color:#faf7f1;letter-spacing:-.01em">Inspire like a maison.</span>
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(30px,4.6vw,72px);color:#d6c89a;letter-spacing:-.03em">Operate like a machine.</span>
+      </h2>
+      <p class="scroll-animate" style="margin:0 auto 40px;max-width:600px;font-size:clamp(15px,1.5vw,19px);line-height:1.55;color:#9aa79f;animation-delay:.1s">12-week pilot. Fully funded by Rudder. On top of your stack. <span style="color:#faf7f1">Pay only when it works.</span></p>
+      <div class="scroll-fade" style="display:flex;flex-direction:column;align-items:center;gap:18px;animation-delay:.2s">
+        <a href="https://calendar.app.google/Ge5XpponypEPQrYH9" target="_blank" rel="noopener" class="cta-btn" style="font-size:16px;font-weight:600;color:#14211b;background:#d6c89a;padding:18px 36px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;gap:10px">Book a meeting with the team <span>→</span></a>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;color:#7f8c84">
+          <span>● sell-through +5&ndash;10 pts</span><span>● inventory productivity +15&ndash;20%</span><span>● stock &minus;10&ndash;15%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid rgba(214,200,154,.12);padding:clamp(48px,6vw,74px) clamp(18px,4vw,52px);background:#090d0a">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="margin-bottom:clamp(36px,4.5vw,54px)">
+        <span style="display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,3.4vw,46px);color:#faf7f1;letter-spacing:-.01em;line-height:1.05">Inspire like a maison.</span>
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(18px,2.3vw,32px);color:#d6c89a;letter-spacing:-.02em;margin-top:8px">Operate like a machine.</span>
+      </div>
+      <div style="height:1px;background:rgba(214,200,154,.12);margin-bottom:26px"></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px">
+        <div style="display:flex;align-items:center;gap:11px"><span style="width:9px;height:9px;background:#d6c89a;border-radius:1px;transform:rotate(45deg)"></span><span style="font-size:17px;font-weight:600">Rudder</span></div>
+        <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:16px;color:#9aa79f">The taste is yours. The 80% is ours.</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;color:#5a6660;margin-top:18px">A new venture by OSS Ventures, the leading AI in operations start-up studio &middot; 2026</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  // Video autoplay helper
+  function startVideos(){
+    document.querySelectorAll('video').forEach(v=>{
+      v.muted=true; v.defaultMuted=true; v.playsInline=true;
+      const p=v.play(); if(p&&p.catch) p.catch(()=>{});
+    });
+  }
+  [0,120,400,1000].forEach(d=>setTimeout(startVideos,d));
+  ['pointerdown','scroll','keydown'].forEach(ev=>
+    window.addEventListener(ev,startVideos,{passive:true,once:true})
+  );
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){const p=e.target.play();if(p&&p.catch)p.catch(()=>{});}
+  }),{threshold:0.05});
+  document.querySelectorAll('video').forEach(v=>obs.observe(v));
+
+  // Scroll-driven beats
+  const wrap=document.getElementById('story-wrap');
+  const beats=document.querySelectorAll('.beat');
+  const hint=document.getElementById('scroll-hint');
+  const THRESHOLDS=[0,0.18,0.38,0.60,0.82];
+  let currentBeat=-1;
+
+  function clamp(x,a,b){return Math.max(a??0,Math.min(b??1,x));}
+
+  function update(){
+    if(!wrap) return;
+    const r=wrap.getBoundingClientRect();
+    const range=r.height-window.innerHeight;
+    const prog=range>0?clamp(-r.top/range):0;
+    let b=0;
+    for(let i=0;i<THRESHOLDS.length;i++){if(prog>=THRESHOLDS[i])b=i;}
+    if(b!==currentBeat){
+      currentBeat=b;
+      beats.forEach((el,i)=>{
+        const active=i===b;
+        const before=i<b;
+        el.style.opacity=active?'1':'0';
+        el.style.transform=active?'translateY(0)':`translateY(${before?-18:18}px)`;
+      });
+      if(hint) hint.style.opacity=b===0?'1':'0';
+    }
+  }
+
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+})();
+</script>
+</body>
+</html>
