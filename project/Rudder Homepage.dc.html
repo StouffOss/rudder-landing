@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#14211b;font-family:'Lexend',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+  ::selection{background:#d6c89a;color:#14211b}
+  @keyframes rUp{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes rFade{from{opacity:0}to{opacity:1}}
+  @keyframes rLeft{from{opacity:0;transform:translateX(-36px)}to{opacity:1;transform:translateX(0)}}
+  @keyframes rRight{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:translateX(0)}}
+  @keyframes rScale{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+  @keyframes cellPulse{0%,100%{opacity:.94}50%{opacity:.45}}
+  @keyframes sigPulse{0%{box-shadow:0 0 0 0 rgba(214,200,154,.55)}70%{box-shadow:0 0 0 16px rgba(214,200,154,0)}100%{box-shadow:0 0 0 0 rgba(214,200,154,0)}}
+  @keyframes dashFlow{to{stroke-dashoffset:-240}}
+  @keyframes leakFall{0%{transform:translateY(-2px);opacity:0}25%{opacity:1}100%{transform:translateY(40px);opacity:0}}
+  @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  @keyframes barGrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+  @keyframes lineFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+  @keyframes arcReveal{from{stroke-dashoffset:520}to{stroke-dashoffset:0}}
+  @media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;animation-iteration-count:1!important}}
+</style>
+</helmet>
+
+<div style="background:#14211b;color:#faf7f1;font-family:'Lexend',system-ui,sans-serif;position:relative">
+
+  <!-- ============ NAV ============ -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:50;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,56px);background:rgba(20,33,27,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(214,200,154,.18)">
+    <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+      <span style="width:9px;height:9px;background:#d6c89a;border-radius:1px;transform:rotate(45deg);display:inline-block"></span>
+      <span style="font-size:18px;font-weight:600;letter-spacing:.02em;color:#faf7f1">Rudder</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:clamp(14px,2.2vw,34px)">
+      <a href="#cost" style="font-size:13px;color:#b9c2bc;text-decoration:none;font-weight:500" style-hover="color:#faf7f1">The cost</a>
+      <a href="#insight" style="font-size:13px;color:#b9c2bc;text-decoration:none;font-weight:500" style-hover="color:#faf7f1">The unlock</a>
+      <a href="#how" style="font-size:13px;color:#b9c2bc;text-decoration:none;font-weight:500" style-hover="color:#faf7f1">How it works</a>
+      <a href="#why" style="font-size:13px;color:#b9c2bc;text-decoration:none;font-weight:500" style-hover="color:#faf7f1">Why Rudder</a>
+      <a href="{{ meetingUrl }}" target="_blank" rel="noopener" style="font-size:13px;font-weight:600;color:#14211b;background:#d6c89a;padding:9px 16px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:7px" style-hover="background:#e3d8b0">Claim a pilot seat <span style="font-size:11px;font-weight:600;opacity:.7">2 left</span></a>
+    </div>
+  </nav>
+
+  <!-- ============ 1 · HERO ============ -->
+  <header id="top" style="scroll-margin-top:64px;min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,64px);align-items:center;padding:104px clamp(20px,4vw,56px) 64px;position:relative;background:#14211b">
+    <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 88% 10%,rgba(31,58,46,.9),transparent 60%);pointer-events:none"></div>
+
+    <div style="position:relative;z-index:2;max-width:640px">
+      <div style="display:inline-flex;align-items:center;gap:9px;padding:6px 12px;border:1px solid rgba(214,200,154,.3);border-radius:999px;margin-bottom:30px;animation:rFade .7s both">
+        <span style="width:6px;height:6px;border-radius:999px;background:#d6c89a;animation:blink 1.8s infinite"></span>
+        <span style="font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#d6c89a">Distribution orchestration · 2 pilot seats left</span>
+      </div>
+
+      <h1 style="margin:0 0 26px;line-height:1.0">
+        <span style="display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(44px,6.2vw,84px);color:#faf7f1;letter-spacing:-.005em;animation:rUp .8s cubic-bezier(.2,.6,.2,1) both">Inspire like a maison.</span>
+        <span style="display:block;font-family:'Lexend',sans-serif;font-weight:700;font-size:clamp(38px,5.4vw,72px);color:#d6c89a;letter-spacing:-.02em;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .12s both">Operate like a machine.</span>
+      </h1>
+
+      <p style="margin:0 0 18px;font-size:clamp(16px,1.25vw,19px);line-height:1.55;color:#cdd4ce;max-width:560px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .22s both">The taste is yours. The 80% is ours. Rudder runs your distribution loop — allocation, replenishment, rebalancing — autonomously and in real time, within your rules and on top of the systems you already run.</p>
+
+      <p style="margin:0 0 30px;font-size:14px;line-height:1.5;color:#9aa79f;max-width:520px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .3s both">For a <span style="color:#faf7f1;font-weight:600">1bn€ maison</span>: <span style="color:#d6c89a;font-weight:600">~50m€ of dead stock freed</span>, <span style="color:#d6c89a;font-weight:600">+50m€ of gross margin recovered</span> per year.</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:12px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .38s both">
+        <a href="#pilot" style="font-size:15px;font-weight:600;color:#14211b;background:#d6c89a;padding:14px 24px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:9px" style-hover="background:#e3d8b0;transform:translateY(-1px)">See your trapped € <span>→</span></a>
+        <a href="{{ meetingUrl }}" target="_blank" rel="noopener" style="font-size:15px;font-weight:600;color:#faf7f1;background:transparent;border:1px solid rgba(214,200,154,.45);padding:14px 24px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center" style-hover="border-color:#d6c89a;background:rgba(214,200,154,.08)">Claim a pilot seat (2 left)</a>
+      </div>
+
+      <p style="margin:34px 0 0;font-size:13px;line-height:1.5;color:#7f8c84;max-width:480px;border-left:2px solid rgba(214,200,154,.35);padding-left:14px;animation:rFade 1s .5s both"><span style="color:#b9c2bc">Your buy was locked 7 months ago. The market moves in two weeks.</span> The maisons that close that gap first will define the new standard.</p>
+    </div>
+
+    <!-- machine panel: live door-network heatmap + upside calculator -->
+    <div style="position:relative;z-index:2;animation:rScale .9s cubic-bezier(.2,.6,.2,1) .25s both">
+      <div style="background:#10191400;background-color:#101914;border:1px solid rgba(214,200,154,.22);border-radius:8px;padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.4)">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="width:6px;height:6px;border-radius:999px;background:#7bbf8e;animation:blink 1.6s infinite"></span>
+            <span style="font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#d6c89a">Live network · door coverage</span>
+          </div>
+          <span style="font-size:11px;color:#7f8c84;font-variant-numeric:tabular-nums">{{ doorsLabel }}</span>
+        </div>
+
+        <div style="position:relative">
+          {{ doorGrid }}
+          <div style="position:absolute;right:8px;bottom:8px;background:rgba(20,33,27,.86);backdrop-filter:blur(4px);border:1px solid rgba(214,200,154,.3);border-radius:5px;padding:9px 12px;animation:floatY 5s ease-in-out infinite">
+            <div style="font-size:9px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#9aa79f">Recoverable margin / yr</div>
+            <div style="font-size:24px;font-weight:300;color:#d6c89a;letter-spacing:-.02em;font-variant-numeric:tabular-nums">+{{ marginGainLabel }}</div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px;margin:12px 2px 18px;font-size:9.5px;color:#7f8c84;letter-spacing:.08em;text-transform:uppercase">
+          <span>3 wks</span>
+          <span style="flex:1;height:5px;border-radius:3px;background:linear-gradient(90deg,#d6c89a,#7a8c6f,#1f3a2e,#14211b)"></span>
+          <span>20+ wks</span>
+        </div>
+
+        <div style="border-top:1px solid rgba(214,200,154,.16);padding-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px">
+          <div>
+            <div style="font-size:28px;font-weight:300;color:#faf7f1;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums">{{ freedStockLabel }}</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9aa79f;margin-top:6px">Dormant stock freed</div>
+            <div style="font-size:11px;color:#7f8c84;margin-top:2px">one-shot, as inventory normalizes</div>
+          </div>
+          <div>
+            <div style="font-size:28px;font-weight:300;color:#d6c89a;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums">+{{ marginGainLabel }}</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9aa79f;margin-top:6px">Gross margin / year</div>
+            <div style="font-size:11px;color:#7f8c84;margin-top:2px">recurring · sell-through recovered</div>
+          </div>
+        </div>
+
+        <div style="background:rgba(214,200,154,.05);border:1px solid rgba(214,200,154,.14);border-radius:6px;padding:14px 15px">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#d6c89a;margin-bottom:13px">Model my upside</div>
+          <div style="margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:7px"><span style="font-size:12px;color:#b9c2bc">Annual revenue</span><span style="font-size:13px;font-weight:600;color:#faf7f1;font-variant-numeric:tabular-nums">{{ revenueLabel }}</span></div>
+            <input type="range" min="200" max="3000" step="50" value="{{ revenue }}" onInput="{{ onRevenue }}" style="width:100%;accent-color:#d6c89a;cursor:pointer;height:4px" />
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:7px"><span style="font-size:12px;color:#b9c2bc">Network size</span><span style="font-size:13px;font-weight:600;color:#faf7f1;font-variant-numeric:tabular-nums">{{ doorsLabel }}</span></div>
+            <input type="range" min="50" max="300" step="5" value="{{ doors }}" onInput="{{ onDoors }}" style="width:100%;accent-color:#d6c89a;cursor:pointer;height:4px" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ 2 · COST OF STATUS QUO ============ -->
+  <section id="cost" style="scroll-margin-top:64px;background:#faf7f1;color:#14211b;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;animation:rFade .8s both;animation-timeline:view();animation-range:entry 0% cover 18%">
+        <span style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#a8884a">The P&amp;L cost</span>
+        <span style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#5a6660">01 — Why</span>
+      </div>
+      <h2 style="margin:0 0 18px;font-size:clamp(32px,4.4vw,56px);font-weight:700;line-height:1.04;letter-spacing:-.02em;max-width:880px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 2% cover 26%">The network you can't actually steer.</h2>
+      <p style="margin:0 0 56px;font-size:clamp(16px,1.5vw,20px);line-height:1.5;color:#5a6660;max-width:680px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .08s both;animation-timeline:view();animation-range:entry 4% cover 30%">Past a certain size, <span style="color:#14211b;font-weight:600">~80% of your network runs blind all season.</span> The first allocation is a bet — and few corrections follow.</p>
+
+      <!-- four-silo leak diagram -->
+      <div style="background:#fff;border:1px solid #d8d0ba;border-radius:8px;padding:clamp(22px,3vw,40px);margin-bottom:48px;animation:rScale .9s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 32%">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:26px;flex-wrap:wrap;gap:10px">
+          <span style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#5a6660">Four silos · four KPIs · four tools that don't talk</span>
+          <span style="font-size:11px;color:#a8884a;font-weight:600">glued by 100+ Excel files</span>
+        </div>
+
+        <!-- orphaned field signal -->
+        <div style="display:flex;justify-content:center;margin-bottom:8px">
+          <div style="text-align:center;padding:14px 22px;border:1px dashed #c8a55f;border-radius:6px;background:#fbf7ec;animation:floatY 5s ease-in-out infinite">
+            <div style="font-size:13px;font-weight:700;color:#14211b;margin-bottom:4px">Field signal <span style="font-weight:400;color:#a8884a">— your most valuable input</span></div>
+            <div style="display:flex;gap:16px;justify-content:center">
+              <span style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#b04a3a">No owner</span>
+              <span style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#b04a3a">No KPI</span>
+              <span style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#b04a3a">No tool</span>
+            </div>
+          </div>
+        </div>
+        <!-- dashed orphan connector -->
+        <div style="height:30px;display:flex;justify-content:center;position:relative">
+          <svg width="100%" height="30" viewBox="0 0 600 30" preserveAspectRatio="none" style="max-width:600px">
+            <path d="M300 0 L300 30" fill="none" stroke="#c8a55f" stroke-width="1.5" stroke-dasharray="4 4" opacity=".5"/>
+            <circle r="3" fill="#c8a55f"><animateMotion dur="2.4s" repeatCount="indefinite" path="M300 0 L300 30"/></circle>
+          </svg>
+          <span style="position:absolute;right:calc(50% - 150px);top:7px;font-size:10px;color:#b04a3a;font-style:italic">dies here — never aggregated</span>
+        </div>
+
+        <!-- silo row -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:stretch;position:relative">
+          <div style="padding:18px 14px;border:1px solid #e4ddc9;border-radius:6px;margin:0 6px;position:relative;background:#fcfaf4">
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5a6660;margin-bottom:8px">Forecast</div>
+            <div style="font-size:14px;font-weight:700;color:#14211b;line-height:1.25">Locked 7 months ahead</div>
+            <div style="font-size:11.5px;color:#5a6660;margin-top:6px;line-height:1.4">KPI: accuracy — structurally impossible at door level</div>
+          </div>
+          <div style="padding:18px 14px;border:1px solid #e4ddc9;border-radius:6px;margin:0 6px;position:relative;background:#fcfaf4">
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5a6660;margin-bottom:8px">Assortment</div>
+            <div style="font-size:14px;font-weight:700;color:#14211b;line-height:1.25">One bet, frozen in</div>
+            <div style="font-size:11.5px;color:#5a6660;margin-top:6px;line-height:1.4">KPI: buy plan — no in-season correction</div>
+          </div>
+          <div style="padding:18px 14px;border:1px solid #e4ddc9;border-radius:6px;margin:0 6px;position:relative;background:#fcfaf4">
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5a6660;margin-bottom:8px">Replenishment</div>
+            <div style="font-size:14px;font-weight:700;color:#14211b;line-height:1.25">Fixed rules on autopilot</div>
+            <div style="font-size:11.5px;color:#5a6660;margin-top:6px;line-height:1.4">KPI: service rate — drifts off target</div>
+          </div>
+          <div style="padding:18px 14px;border:1px solid #e4ddc9;border-radius:6px;margin:0 6px;position:relative;background:#fcfaf4">
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5a6660;margin-bottom:8px">Rebalancing</div>
+            <div style="font-size:14px;font-weight:700;color:#14211b;line-height:1.25">Manual or not happening</div>
+            <div style="font-size:11.5px;color:#5a6660;margin-top:6px;line-height:1.4">KPI: none — no time, no tool</div>
+          </div>
+          <!-- leak dots between silos -->
+          <div style="position:absolute;left:25%;top:100%;width:6px;height:6px;border-radius:999px;background:#c8a55f;animation:leakFall 2.6s ease-in infinite"></div>
+          <div style="position:absolute;left:50%;top:100%;width:6px;height:6px;border-radius:999px;background:#c8a55f;animation:leakFall 2.6s ease-in .9s infinite"></div>
+          <div style="position:absolute;left:75%;top:100%;width:6px;height:6px;border-radius:999px;background:#c8a55f;animation:leakFall 2.6s ease-in 1.7s infinite"></div>
+        </div>
+        <div style="text-align:center;margin-top:30px;font-size:12px;color:#a8884a;font-style:italic">value leaks between every seam · no one owns the network</div>
+      </div>
+
+      <!-- three nerve points -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:54px">
+        <div style="animation:rUp .8s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 24%">
+          <div style="font-size:clamp(34px,3.6vw,48px);font-weight:300;color:#14211b;letter-spacing:-.02em;line-height:1">1,000+</div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#a8884a;margin:10px 0 8px">Transfer requests / month</div>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#5a6660"><span style="color:#14211b;font-weight:600">Field signal dies.</span> Stores flag stockouts, surges, slow-movers. Nothing aggregates them — none actioned.</p>
+        </div>
+        <div style="animation:rUp .8s cubic-bezier(.2,.6,.2,1) .1s both;animation-timeline:view();animation-range:entry 0% cover 24%">
+          <div style="font-size:clamp(34px,3.6vw,48px);font-weight:300;color:#14211b;letter-spacing:-.02em;line-height:1">20–40<span style="font-size:.5em">%</span></div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#a8884a;margin:10px 0 8px">Best-SKU demand unserved</div>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#5a6660"><span style="color:#14211b;font-weight:600">Seasonal buy is frozen.</span> Locked 7 months ahead, no in-season correction when a SKU runs hot.</p>
+        </div>
+        <div style="animation:rUp .8s cubic-bezier(.2,.6,.2,1) .2s both;animation-timeline:view();animation-range:entry 0% cover 24%">
+          <div style="font-size:clamp(34px,3.6vw,48px);font-weight:300;color:#14211b;letter-spacing:-.02em;line-height:1">3 → 20+</div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#a8884a;margin:10px 0 8px">Weeks of coverage, same brand</div>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#5a6660"><span style="color:#14211b;font-weight:600">Carryover on autopilot.</span> Permanent SKUs on fixed rules; doors drift far apart, all season.</p>
+        </div>
+      </div>
+
+      <!-- compounding effect band -->
+      <div style="background:#efe9dc;border-radius:8px;padding:clamp(24px,3vw,40px);display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center;animation:rUp .8s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 30%">
+        <p style="margin:0;font-size:clamp(17px,1.7vw,22px);line-height:1.45;color:#14211b;font-weight:500">Every season the gap widens. Four silos, four KPIs — and the field signal has no home. This isn't an operational problem. <span style="color:#a8884a">It's a P&amp;L problem.</span></p>
+        <div style="display:flex;gap:32px">
+          <div><div style="font-size:clamp(30px,3.2vw,44px);font-weight:300;color:#14211b;letter-spacing:-.02em;line-height:1">2–4<span style="font-size:.5em">%</span></div><div style="font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5a6660;margin-top:8px;line-height:1.3">of revenue missed<br>every season</div></div>
+          <div><div style="font-size:clamp(30px,3.2vw,44px);font-weight:300;color:#14211b;letter-spacing:-.02em;line-height:1">15–25<span style="font-size:.5em">%</span></div><div style="font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5a6660;margin-top:8px;line-height:1.3">of inventory frozen<br>at any time</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3 · CREDIBILITY ============ -->
+  <section id="proof" style="scroll-margin-top:64px;background:#1f3a2e;color:#faf7f1;padding:clamp(64px,7vw,104px) clamp(20px,4vw,56px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;animation:rFade .8s both;animation-timeline:view();animation-range:entry 0% cover 20%">
+        <span style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#d6c89a">Why trust us</span>
+        <span style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#8fa096">02 — Credibility</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(32px,5vw,72px);align-items:start">
+        <div>
+          <p style="margin:0 0 34px;font-size:clamp(20px,2.2vw,30px);line-height:1.35;font-weight:500;color:#faf7f1;animation:rUp .8s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 28%">Built by a 15-year <span style="color:#d6c89a">Louis Vuitton / Saint Laurent</span> merchandising leader and a B2B SaaS GTM founder — backed by <span style="color:#d6c89a">OSS Ventures</span>, France's reference AI studio.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+            <div style="border-top:1px solid rgba(214,200,154,.28);padding-top:16px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .06s both;animation-timeline:view();animation-range:entry 0% cover 30%">
+              <div style="font-size:15px;font-weight:700;color:#faf7f1">Aurore Malmenayde</div>
+              <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#d6c89a;margin:5px 0 9px">Co-founder · Merchandising</div>
+              <p style="margin:0;font-size:13px;line-height:1.5;color:#b9c2bc">15 yrs in fashion &amp; luxury — Louis Vuitton, Zadig &amp; Voltaire, Saint Laurent. Ran buying &amp; allocation across 200-store networks. The exact problem Rudder solves, lived from the inside.</p>
+            </div>
+            <div style="border-top:1px solid rgba(214,200,154,.28);padding-top:16px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .14s both;animation-timeline:view();animation-range:entry 0% cover 30%">
+              <div style="font-size:15px;font-weight:700;color:#faf7f1">Jean-Philippe Stouff</div>
+              <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#d6c89a;margin:5px 0 9px">Co-founder · GTM</div>
+              <p style="margin:0;font-size:13px;line-height:1.5;color:#b9c2bc">15+ yrs turning B2B SaaS into revenue. Two ventures co-founded, €1.5M+ raised. Builds the commercial engine.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:28px;flex-wrap:wrap;margin-top:28px;padding-top:22px;border-top:1px solid rgba(214,200,154,.18);animation:rFade 1s .2s both;animation-timeline:view();animation-range:entry 0% cover 34%">
+            <div><div style="font-size:24px;font-weight:300;color:#d6c89a">20+</div><div style="font-size:10.5px;color:#8fa096;letter-spacing:.05em">AI products with Tier-1 leaders</div></div>
+            <div><div style="font-size:24px;font-weight:300;color:#d6c89a">OSS</div><div style="font-size:10.5px;color:#8fa096;letter-spacing:.05em">France's reference AI studio</div></div>
+            <div><div style="font-size:24px;font-weight:300;color:#d6c89a">12 wks</div><div style="font-size:10.5px;color:#8fa096;letter-spacing:.05em">to a funded pilot result</div></div>
+          </div>
+        </div>
+
+        <!-- proven result bars -->
+        <div style="background:#14211b;border:1px solid rgba(214,200,154,.22);border-radius:8px;padding:28px 26px;animation:rRight .9s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 30%">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#d6c89a;margin-bottom:6px">Latent potential, proven</div>
+          <p style="margin:0 0 24px;font-size:13px;line-height:1.5;color:#b9c2bc">One expert merchandiser took manual control of carryover — cut 50% of references, doubled investment on top doors.</p>
+          <div style="display:flex;align-items:flex-end;gap:30px;height:170px;border-bottom:1px solid rgba(214,200,154,.2);padding-bottom:0">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%">
+              <div style="font-size:26px;font-weight:300;color:#d6c89a;margin-bottom:8px">+70%</div>
+              <div style="width:52px;background:linear-gradient(180deg,#d6c89a,#a8884a);border-radius:3px 3px 0 0;height:140px;transform-origin:bottom;animation:barGrow 1s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 40%"></div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%">
+              <div style="font-size:26px;font-weight:300;color:#faf7f1;margin-bottom:8px">+10%</div>
+              <div style="width:52px;background:#3a5446;border-radius:3px 3px 0 0;height:30px;transform-origin:bottom;animation:barGrow 1s cubic-bezier(.2,.6,.2,1) .15s both;animation-timeline:view();animation-range:entry 0% cover 40%"></div>
+            </div>
+          </div>
+          <div style="display:flex;gap:30px;margin-top:10px">
+            <div style="flex:1;text-align:center;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8fa096">Sales</div>
+            <div style="flex:1;text-align:center;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8fa096">Inventory</div>
+          </div>
+          <p style="margin:18px 0 0;font-size:12.5px;line-height:1.5;color:#d6c89a;font-style:italic">Rudder makes that move systematic — at network scale, continuously.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4 · SOLUTION INSIGHT ============ -->
+  <section id="insight" style="scroll-margin-top:64px;background:#faf7f1;color:#14211b;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;animation:rFade .8s both;animation-timeline:view();animation-range:entry 0% cover 18%">
+        <span style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#a8884a">The unlock</span>
+        <span style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#5a6660">03 — How</span>
+      </div>
+      <h2 style="margin:0 0 22px;font-size:clamp(32px,4.4vw,56px);font-weight:700;line-height:1.04;letter-spacing:-.02em;max-width:960px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 2% cover 26%">The industry chased forecast accuracy for 20 years. <span style="color:#a8884a">That's the dead end.</span></h2>
+      <p style="margin:0 0 14px;font-size:clamp(17px,1.7vw,22px);line-height:1.45;color:#14211b;font-weight:500;max-width:760px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .06s both;animation-timeline:view();animation-range:entry 4% cover 30%">Everyone else predicts demand from the past. Rudder is <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;color:#a8884a">model-free</span> — it learns which actions produce gains on your live network, and acts.</p>
+      <p style="margin:0 0 52px;font-size:15px;line-height:1.55;color:#5a6660;max-width:720px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .12s both;animation-timeline:view();animation-range:entry 5% cover 32%">It starts where every other tool stops — the field signal — and runs two loops: a short loop that reacts in real time to maximize topline, and a long loop that re-steers investment and network strategy. A decision's validity decays by the hour; batch-and-cycle tools structurally can't keep up.</p>
+
+      <!-- animated two-loop diagram -->
+      <div style="background:#fff;border:1px solid #d8d0ba;border-radius:8px;padding:clamp(24px,3.5vw,46px) clamp(20px,3vw,40px);margin-bottom:54px;animation:rScale .9s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 30%">
+        <div style="position:relative">
+          <!-- arcs svg overlay -->
+          <svg viewBox="0 0 1000 60" preserveAspectRatio="none" style="position:absolute;top:-2px;left:0;width:100%;height:62px;pointer-events:none">
+            <path d="M105 56 C 105 6, 360 6, 360 56" fill="none" stroke="#a8884a" stroke-width="2" stroke-dasharray="7 7" style="animation:dashFlow 2.2s linear infinite"/>
+            <circle r="4" fill="#a8884a"><animateMotion dur="2.6s" repeatCount="indefinite" path="M105 56 C 105 6, 360 6, 360 56"/></circle>
+          </svg>
+          <div style="text-align:left;margin-bottom:6px;padding-left:6px"><span style="font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#a8884a">Short loop · reacts in real time → topline</span></div>
+          <!-- tiles -->
+          <div style="display:flex;align-items:stretch;gap:0;margin-top:30px">
+            <div style="flex:1.1;background:#14211b;border-radius:5px;padding:16px 14px;position:relative;animation:sigPulse 2.6s infinite">
+              <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#d6c89a;margin-bottom:5px">Real-time</div>
+              <div style="font-size:15px;font-weight:700;color:#faf7f1;letter-spacing:-.01em">Signal</div>
+            </div>
+            <div style="display:flex;align-items:center;color:#bcae87;padding:0 10px;font-size:16px">→</div>
+            <div style="flex:1.3;background:#1f3a2e;border-radius:5px;padding:16px 14px">
+              <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#d6c89a;margin-bottom:5px">Daily 80%</div>
+              <div style="font-size:15px;font-weight:700;color:#faf7f1;letter-spacing:-.01em">Replenish &amp; rebalance</div>
+            </div>
+            <div style="display:flex;align-items:center;color:#cdc4ac;padding:0 10px;font-size:16px">→</div>
+            <div style="flex:1;background:#fcfaf4;border:1px solid #e4ddc9;border-radius:5px;padding:16px 14px">
+              <div style="font-size:15px;font-weight:700;color:#14211b;letter-spacing:-.01em">Re-order</div>
+            </div>
+            <div style="display:flex;align-items:center;color:#cdc4ac;padding:0 10px;font-size:16px">→</div>
+            <div style="flex:1;background:#fcfaf4;border:1px solid #e4ddc9;border-radius:5px;padding:16px 14px">
+              <div style="font-size:15px;font-weight:700;color:#14211b;letter-spacing:-.01em">Assortment v2</div>
+            </div>
+            <div style="display:flex;align-items:center;color:#cdc4ac;padding:0 10px;font-size:16px">→</div>
+            <div style="flex:1;background:#fcfaf4;border:1px solid #e4ddc9;border-radius:5px;padding:16px 14px">
+              <div style="font-size:15px;font-weight:700;color:#14211b;letter-spacing:-.01em">Forecast v2</div>
+              <div style="font-size:10px;color:#a8884a;margin-top:3px;font-style:italic">the output</div>
+            </div>
+          </div>
+          <!-- long loop arc below -->
+          <svg viewBox="0 0 1000 60" preserveAspectRatio="none" style="position:relative;top:-2px;left:0;width:100%;height:58px;pointer-events:none;margin-top:4px">
+            <path d="M495 4 C 495 54, 900 54, 900 4" fill="none" stroke="#1f3a2e" stroke-width="2" stroke-dasharray="7 7" style="animation:dashFlow 3s linear infinite"/>
+            <circle r="4" fill="#1f3a2e"><animateMotion dur="3.4s" repeatCount="indefinite" path="M495 4 C 495 54, 900 54, 900 4"/></circle>
+          </svg>
+          <div style="text-align:right;padding-right:6px"><span style="font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#1f3a2e">Long loop · re-steers investment &amp; network strategy</span></div>
+        </div>
+      </div>
+
+      <!-- three pillars: From → To -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+        <div style="background:#1f3a2e;color:#faf7f1;border-radius:8px;padding:26px 24px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 26%">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8fa096;margin-bottom:14px">From a 7-month-old bet</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="color:#d6c89a;font-size:18px">→</span><span style="font-size:17px;font-weight:700;color:#d6c89a;letter-spacing:-.01em">a live loop</span></div>
+          <p style="margin:0;font-size:13px;line-height:1.5;color:#b9c2bc">Replenishment &amp; rebalancing executed against live coverage and transfer cost. Every door has the right stock, every day.</p>
+        </div>
+        <div style="background:#1f3a2e;color:#faf7f1;border-radius:8px;padding:26px 24px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .1s both;animation-timeline:view();animation-range:entry 0% cover 26%">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8fa096;margin-bottom:14px">From abstract KPIs</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="color:#d6c89a;font-size:18px">→</span><span style="font-size:17px;font-weight:700;color:#d6c89a;letter-spacing:-.01em">€ on every decision</span></div>
+          <p style="margin:0;font-size:13px;line-height:1.5;color:#b9c2bc">Gross-margin gain vs. transfer cost, arbitrated in euros. This transfer is worth +€X net of cost — or it doesn't happen.</p>
+        </div>
+        <div style="background:#1f3a2e;color:#faf7f1;border-radius:8px;padding:26px 24px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .2s both;animation-timeline:view();animation-range:entry 0% cover 26%">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8fa096;margin-bottom:14px">From tribal knowledge</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="color:#d6c89a;font-size:18px">→</span><span style="font-size:17px;font-weight:700;color:#d6c89a;letter-spacing:-.01em">an owned asset</span></div>
+          <p style="margin:0;font-size:13px;line-height:1.5;color:#b9c2bc">The maison's rules captured, versioned, learned — the Knowledge Graph. Your best merchandiser's logic, applied at network scale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5 · HOW IT WORKS ============ -->
+  <section id="how" style="scroll-margin-top:64px;background:#efe9dc;color:#14211b;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;animation:rFade .8s both;animation-timeline:view();animation-range:entry 0% cover 18%">
+        <span style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#a8884a">The method</span>
+        <span style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#5a6660">04 — What</span>
+      </div>
+      <h2 style="margin:0 0 16px;font-size:clamp(32px,4.4vw,56px);font-weight:700;line-height:1.04;letter-spacing:-.02em;max-width:880px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 2% cover 26%">How Rudder makes your stack act as one system.</h2>
+      <p style="margin:0 0 16px;font-size:15px;line-height:1.5;color:#5a6660;max-width:640px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .06s both;animation-timeline:view();animation-range:entry 4% cover 30%">Data → intelligence → action → results, across four product layers. <span style="color:#14211b;font-weight:600">No migration. No new system of record.</span></p>
+
+      <!-- progress line -->
+      <div style="height:2px;background:#d8d0ba;border-radius:2px;margin:36px 0 30px;transform-origin:left;animation:lineFill 1.2s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 42%"></div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+        <!-- step 1 -->
+        <div style="animation:rUp .8s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 28%">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:26px;height:26px;border-radius:999px;background:#1f3a2e;color:#d6c89a;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><span style="font-size:15px;font-weight:700;color:#14211b;letter-spacing:-.01em">Connect</span></div>
+          <div style="background:#fff;border:1px solid #d8d0ba;border-radius:6px;padding:14px;margin-bottom:14px;min-height:78px">
+            <div style="display:flex;flex-wrap:wrap;gap:5px">
+              <span style="font-size:10px;font-weight:600;color:#5a6660;border:1px solid #e4ddc9;border-radius:3px;padding:3px 7px">POS</span>
+              <span style="font-size:10px;font-weight:600;color:#5a6660;border:1px solid #e4ddc9;border-radius:3px;padding:3px 7px">ERP</span>
+              <span style="font-size:10px;font-weight:600;color:#5a6660;border:1px solid #e4ddc9;border-radius:3px;padding:3px 7px">APS</span>
+              <span style="font-size:10px;font-weight:600;color:#5a6660;border:1px solid #e4ddc9;border-radius:3px;padding:3px 7px">Buying tool</span>
+              <span style="font-size:10px;font-weight:600;color:#5a6660;border:1px solid #e4ddc9;border-radius:3px;padding:3px 7px">Excel</span>
+              <span style="font-size:10px;font-weight:600;color:#14211b;background:#efe9dc;border-radius:3px;padding:3px 7px">+ Field signals</span>
+            </div>
+          </div>
+          <p style="margin:0;font-size:12.5px;line-height:1.5;color:#5a6660"><span style="color:#a8884a;font-weight:600">You get:</span> the network view no silo can produce.</p>
+        </div>
+        <!-- step 2 -->
+        <div style="animation:rUp .8s cubic-bezier(.2,.6,.2,1) .1s both;animation-timeline:view();animation-range:entry 0% cover 28%">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:26px;height:26px;border-radius:999px;background:#1f3a2e;color:#d6c89a;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span><span style="font-size:15px;font-weight:700;color:#14211b;letter-spacing:-.01em">Augment &amp; segment</span></div>
+          <div style="background:#fff;border:1px solid #d8d0ba;border-radius:6px;padding:14px;margin-bottom:14px;min-height:78px">
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:#5a6660">Transfer cost</span><span style="color:#14211b;font-weight:600">€ live</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:#5a6660">Door potential</span><span style="color:#14211b;font-weight:600">scored</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:#5a6660">Reliable on-hand</span><span style="color:#14211b;font-weight:600">rebuilt</span></div>
+            </div>
+          </div>
+          <p style="margin:0;font-size:12.5px;line-height:1.5;color:#5a6660"><span style="color:#a8884a;font-weight:600">You get:</span> a live, true picture of every door.</p>
+        </div>
+        <!-- step 3 -->
+        <div style="animation:rUp .8s cubic-bezier(.2,.6,.2,1) .2s both;animation-timeline:view();animation-range:entry 0% cover 28%">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:26px;height:26px;border-radius:999px;background:#1f3a2e;color:#d6c89a;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span><span style="font-size:15px;font-weight:700;color:#14211b;letter-spacing:-.01em">Encode the rules</span></div>
+          <div style="background:#fff;border:1px solid #d8d0ba;border-radius:6px;padding:14px;margin-bottom:14px;min-height:78px">
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#a8884a;margin-bottom:8px">Rule · model-free</div>
+            <div style="font-size:11.5px;color:#14211b;line-height:1.4;font-family:'Cormorant Garamond',serif;font-style:italic">"If a top door drops below 2 wks &amp; a B-door holds 12+, transfer — when €gain &gt; cost."</div>
+          </div>
+          <p style="margin:0;font-size:12.5px;line-height:1.5;color:#5a6660"><span style="color:#a8884a;font-weight:600">You get:</span> your playbook executable at scale.</p>
+        </div>
+        <!-- step 4 -->
+        <div style="animation:rUp .8s cubic-bezier(.2,.6,.2,1) .3s both;animation-timeline:view();animation-range:entry 0% cover 28%">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:26px;height:26px;border-radius:999px;background:#d6c89a;color:#14211b;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">4</span><span style="font-size:15px;font-weight:700;color:#14211b;letter-spacing:-.01em">Execute</span></div>
+          <div style="background:#14211b;border-radius:6px;padding:14px;margin-bottom:14px;min-height:78px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px"><span style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#d6c89a">Transfer · auto</span><span style="font-size:9px;color:#7bbf8e;font-weight:600">WITHIN RULES</span></div>
+            <div style="font-size:12px;color:#faf7f1;line-height:1.4">Move 14 units · Door 07 → Door 31</div>
+            <div style="font-size:15px;color:#d6c89a;font-weight:300;margin-top:5px">+€3,240 <span style="font-size:10px;color:#8fa096">net of cost</span></div>
+          </div>
+          <p style="margin:0;font-size:12.5px;line-height:1.5;color:#5a6660"><span style="color:#a8884a;font-weight:600">You get:</span> teams set strategy; Rudder runs the routine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6 · WHY RUDDER WINS ============ -->
+  <section id="why" style="scroll-margin-top:64px;background:#14211b;color:#faf7f1;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;animation:rFade .8s both;animation-timeline:view();animation-range:entry 0% cover 18%">
+        <span style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#d6c89a">The moat</span>
+        <span style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#8fa096">05 — Why Rudder</span>
+      </div>
+      <h2 style="margin:0 0 16px;font-size:clamp(32px,4.4vw,56px);font-weight:700;line-height:1.04;letter-spacing:-.02em;max-width:860px;color:#faf7f1;animation:rUp .8s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 2% cover 26%">A layer on top — <span style="color:#d6c89a">that becomes impossible to remove.</span></h2>
+      <p style="margin:0 0 44px;font-size:15px;line-height:1.55;color:#b9c2bc;max-width:680px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .06s both;animation-timeline:view();animation-range:entry 4% cover 30%">Rudder doesn't replace your APS, ERP, or Excel. It orchestrates above them and executes where they stop — and compounds into two moats no 6-month sprint can replicate.</p>
+
+      <!-- moats -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:48px">
+        <div style="border:1px solid rgba(214,200,154,.22);border-radius:8px;padding:26px 24px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 26%">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#d6c89a;margin-bottom:10px">Moat 01 · the Palantir play</div>
+          <div style="font-size:19px;font-weight:700;color:#faf7f1;margin-bottom:8px;letter-spacing:-.01em">Maison Knowledge Graph</div>
+          <p style="margin:0;font-size:13px;line-height:1.5;color:#b9c2bc">Every decision captured as a rule. The ontology is the value — and it grows with every season you run.</p>
+        </div>
+        <div style="border:1px solid rgba(214,200,154,.22);border-radius:8px;padding:26px 24px;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .1s both;animation-timeline:view();animation-range:entry 0% cover 26%">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#d6c89a;margin-bottom:10px">Moat 02 · the Salesforce play</div>
+          <div style="font-size:19px;font-weight:700;color:#faf7f1;margin-bottom:8px;letter-spacing:-.01em">Operating Position</div>
+          <p style="margin:0;font-size:13px;line-height:1.5;color:#b9c2bc">The single point teams run the network through. Switching means rebuilding rules, re-integrating 5 systems, re-training the org.</p>
+        </div>
+      </div>
+
+      <!-- comparison matrix -->
+      <div style="overflow-x:auto;animation:rScale .9s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 30%">
+        <div style="min-width:760px;border-top:2px solid #d6c89a">
+          <!-- header row -->
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.15fr;align-items:stretch">
+            <div style="padding:16px 14px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8fa096">Capability</div>
+            <div style="padding:16px 14px;font-size:12px;font-weight:600;color:#b9c2bc;border-left:1px solid rgba(214,200,154,.14)">Planning generalists</div>
+            <div style="padding:16px 14px;font-size:12px;font-weight:600;color:#b9c2bc;border-left:1px solid rgba(214,200,154,.14)">Quantitative SC</div>
+            <div style="padding:16px 14px;font-size:12px;font-weight:600;color:#b9c2bc;border-left:1px solid rgba(214,200,154,.14)">AI-native retail</div>
+            <div style="padding:16px 14px;background:#1f3a2e;border-radius:6px 6px 0 0;font-size:13px;font-weight:700;color:#d6c89a">Rudder</div>
+          </div>
+          <!-- rows -->
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.15fr;align-items:stretch;border-top:1px solid rgba(214,200,154,.12)" style-hover="background:rgba(214,200,154,.03)">
+            <div style="padding:15px 14px;font-size:12px;font-weight:600;color:#faf7f1">Mode</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Plan only</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Model &amp; optimize</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Recommend</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#faf7f1;font-weight:600;background:#1f3a2e">Orchestrate + execute</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.15fr;align-items:stretch;border-top:1px solid rgba(214,200,154,.12)" style-hover="background:rgba(214,200,154,.03)">
+            <div style="padding:15px 14px;font-size:12px;font-weight:600;color:#faf7f1">Network coverage</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Stops at allocation</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Per-flow</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Partial</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#faf7f1;font-weight:600;background:#1f3a2e">Full network</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.15fr;align-items:stretch;border-top:1px solid rgba(214,200,154,.12)" style-hover="background:rgba(214,200,154,.03)">
+            <div style="padding:15px 14px;font-size:12px;font-weight:600;color:#faf7f1">Transfer-cost integration</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">No</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Manual params</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">No</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#faf7f1;font-weight:600;background:#1f3a2e">Built-in, in €</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.15fr;align-items:stretch;border-top:1px solid rgba(214,200,154,.12)" style-hover="background:rgba(214,200,154,.03)">
+            <div style="padding:15px 14px;font-size:12px;font-weight:600;color:#faf7f1">Learning</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">—</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Model-based</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Black-box ML</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#d6c89a;font-weight:700;background:#1f3a2e">Model-free</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.15fr;align-items:stretch;border-top:1px solid rgba(214,200,154,.12)" style-hover="background:rgba(214,200,154,.03)">
+            <div style="padding:15px 14px;font-size:12px;font-weight:600;color:#faf7f1">€ visibility</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Plans only</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Cost functions</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Opaque</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#faf7f1;font-weight:600;background:#1f3a2e">€ on every decision</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.15fr;align-items:stretch;border-top:1px solid rgba(214,200,154,.12)" style-hover="background:rgba(214,200,154,.03)">
+            <div style="padding:15px 14px;font-size:12px;font-weight:600;color:#faf7f1">Calculation transparency</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">High</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Low · consultants</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#9aa79f;border-left:1px solid rgba(214,200,154,.1)">Opaque</div>
+            <div style="padding:15px 14px;font-size:12.5px;color:#faf7f1;font-weight:600;background:#1f3a2e;border-radius:0 0 6px 6px">Full traceability</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- interactive differentiation pills -->
+      <div style="margin-top:40px">
+        <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8fa096;margin-bottom:16px">Rudder vs. — pick one</div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px">
+          <sc-for list="{{ comps }}" as="c" hint-placeholder-count="4">
+            <button onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</button>
+          </sc-for>
+        </div>
+        <div style="background:#1f3a2e;border-left:3px solid #d6c89a;border-radius:0 8px 8px 0;padding:24px 28px;min-height:64px;display:flex;align-items:center">
+          <p style="margin:0;font-size:clamp(17px,1.9vw,24px);line-height:1.4;color:#faf7f1;font-weight:500">{{ diffLine }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7 · PILOT CTA ============ -->
+  <section id="pilot" style="scroll-margin-top:64px;background:#faf7f1;color:#14211b;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="text-align:center;max-width:780px;margin:0 auto 56px">
+        <span style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#a8884a;display:block;margin-bottom:20px;animation:rFade .8s both;animation-timeline:view();animation-range:entry 0% cover 20%">The decision</span>
+        <h2 style="margin:0 0 22px;font-size:clamp(32px,4.6vw,58px);font-weight:700;line-height:1.05;letter-spacing:-.02em;animation:rUp .8s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 2% cover 26%">See how much margin and cash your network is leaving on the table.</h2>
+        <p style="margin:0;font-size:clamp(15px,1.5vw,18px);line-height:1.55;color:#5a6660;animation:rUp .8s cubic-bezier(.2,.6,.2,1) .08s both;animation-timeline:view();animation-range:entry 4% cover 30%">Pick one country × category. We audit your distribution architecture, baseline sell-through and coverage, and design a <span style="color:#14211b;font-weight:600">12-week pilot — fully funded by Rudder.</span> ~4 hrs/week of expert time, payment only if feasibility is proven.</p>
+      </div>
+
+      <!-- 3-step charter -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:44px;position:relative">
+        <div style="padding:28px 26px;background:#fff;border:1px solid #d8d
+</x-dc>
+</body>
+</html>

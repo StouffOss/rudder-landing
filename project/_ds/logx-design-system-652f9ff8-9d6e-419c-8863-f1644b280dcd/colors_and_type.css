@@ -1,0 +1,153 @@
+/* ============================================================
+   LogX Design System — Colors & Type
+   Source of truth: LogX_Pitch_May25v2.pdf (OSS Ventures)
+   Brand font: Lexend (Google Fonts) — the deck's actual typeface.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ---- Brand palette (sampled from the pitch deck) ---- */
+  --logx-pine:        #1f3a2e;  /* primary deep forest green — dark slide bg, feature cards */
+  --logx-pine-deep:   #14211b;  /* near-black green — ink on light, "Signal" tile, darkest bg */
+  --logx-cream:       #faf7f1;  /* primary ivory background */
+  --logx-cream-2:     #efe9dc;  /* sand — highlight panels, active rows */
+  --logx-sand-line:   #d8d0ba;  /* hairline borders, dividers on light */
+  --logx-gold:        #d6c89a;  /* champagne gold — accent on dark, eyebrows, headline accent */
+  --logx-gold-ink:    #a8884a;  /* darkened gold — for gold text that needs contrast on cream */
+  --logx-sage:        #5a6660;  /* muted sage gray — body/subhead on light */
+  --logx-black:       #000000;
+  --logx-white:       #ffffff;
+
+  /* ---- Semantic foreground / background ---- */
+  --bg:            var(--logx-cream);
+  --bg-panel:      var(--logx-cream-2);
+  --bg-dark:       var(--logx-pine);
+  --bg-darkest:    var(--logx-pine-deep);
+
+  --fg-1:          var(--logx-pine-deep);   /* primary ink on light */
+  --fg-2:          var(--logx-sage);        /* secondary text on light */
+  --fg-on-dark:    var(--logx-cream);       /* primary text on dark */
+  --fg-on-dark-2:  #b9c2bc;                 /* secondary text on dark */
+  --accent:        var(--logx-gold);
+  --accent-ink:    var(--logx-gold-ink);
+
+  --line:          var(--logx-sand-line);
+  --line-dark:     rgba(214,200,154,0.28);  /* gold hairline on dark */
+
+  /* ---- Type ---- */
+  --font-sans: 'Lexend', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Fluid display sizes tuned to the deck (1280px frame baseline) */
+  --fs-display:  clamp(40px, 4.6vw, 60px);  /* slide headlines */
+  --fs-stat:     clamp(48px, 5.4vw, 80px);  /* big stat numerals */
+  --fs-h1:       40px;
+  --fs-h2:       28px;
+  --fs-h3:       20px;
+  --fs-body:     16px;
+  --fs-small:    14px;
+  --fs-eyebrow:  11px;
+
+  --lh-tight:    1.04;
+  --lh-snug:     1.25;
+  --lh-body:     1.5;
+
+  --tracking-eyebrow: 0.16em;
+  --tracking-tight:   -0.015em;
+
+  /* ---- Spacing scale (8pt base) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* ---- Radii ---- */
+  --radius-sm: 2px;
+  --radius:    4px;   /* default — cards & tiles in the deck are barely rounded */
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  /* ---- Elevation (used sparingly — the deck favors borders over shadows) ---- */
+  --shadow-card: 0 1px 2px rgba(20,33,27,0.04);
+  --shadow-pop:  0 8px 24px rgba(20,33,27,0.12);
+}
+
+/* ============================================================
+   Semantic element styles — apply by tagging or .logx scope
+   ============================================================ */
+
+.logx {
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+  background: var(--bg);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.logx-eyebrow {
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.logx-eyebrow--on-dark { color: var(--accent); }
+.logx-eyebrow--muted   { color: var(--fg-2); }
+
+.logx-display {
+  font-size: var(--fs-display);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+.logx-display .accent { color: var(--accent-ink); }
+.logx-display--on-dark { color: var(--fg-on-dark); }
+.logx-display--on-dark .accent { color: var(--accent); }
+
+.logx-h2 { font-size: var(--fs-h2); font-weight: 700; line-height: var(--lh-snug); letter-spacing: var(--tracking-tight); }
+.logx-h3 { font-size: var(--fs-h3); font-weight: 700; line-height: var(--lh-snug); }
+
+.logx-stat {
+  font-size: var(--fs-stat);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.logx-subhead {
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: var(--lh-snug);
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+
+.logx-body {
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+
+.logx-caption {
+  font-size: var(--fs-small);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  color: var(--fg-1);
+}
+
+.logx-quote {
+  font-style: italic;
+  font-weight: 400;
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}

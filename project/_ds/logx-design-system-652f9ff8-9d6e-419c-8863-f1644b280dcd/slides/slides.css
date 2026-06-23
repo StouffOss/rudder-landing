@@ -1,0 +1,96 @@
+/* ============================================================
+   LogX slide template — shared styles
+   1280 × 720 authoring frame (16:9). Pairs with colors_and_type.css
+   ============================================================ */
+
+.slide {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  background: var(--logx-cream);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  padding: 64px 80px;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+.slide--dark { background: var(--logx-pine); color: var(--fg-on-dark); }
+.slide--darkest { background: var(--logx-pine-deep); color: var(--fg-on-dark); }
+
+/* ---- Fixed furniture: wordmark / section tag / page number ---- */
+.slide__mark {
+  position: absolute; top: 36px; left: 80px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.slide--dark .slide__mark, .slide--darkest .slide__mark { color: var(--accent); }
+.slide__tag {
+  position: absolute; top: 36px; right: 80px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--fg-2);
+}
+.slide--dark .slide__tag, .slide--darkest .slide__tag { color: var(--fg-on-dark-2); }
+.slide__page {
+  position: absolute; bottom: 34px; right: 80px;
+  font-size: 11px; letter-spacing: 0.12em; color: var(--fg-2);
+}
+.slide--dark .slide__page, .slide--darkest .slide__page { color: var(--fg-on-dark-2); }
+.slide__foot {
+  position: absolute; bottom: 34px; left: 80px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--fg-on-dark-2);
+}
+
+/* ---- Headlines / text ---- */
+.slide__eyebrow {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent-ink); margin: 0 0 18px;
+}
+.slide--dark .slide__eyebrow, .slide--darkest .slide__eyebrow { color: var(--accent); }
+.slide__h {
+  font-size: 50px; font-weight: 700; line-height: 1.04; letter-spacing: -0.018em;
+  margin: 0; text-wrap: balance; color: inherit;
+}
+.slide__h .accent { color: var(--accent-ink); }
+.slide--dark .slide__h .accent, .slide--darkest .slide__h .accent { color: var(--accent); }
+.slide__sub {
+  font-size: 21px; font-weight: 400; line-height: 1.3; color: var(--fg-2);
+  margin: 18px 0 0; max-width: 900px; text-wrap: pretty;
+}
+.slide--dark .slide__sub, .slide--darkest .slide__sub { color: var(--fg-on-dark-2); }
+
+/* ---- Columns ---- */
+.cols { display: grid; gap: 40px; margin-top: 44px; }
+.cols--3 { grid-template-columns: repeat(3, 1fr); }
+.cols--2 { grid-template-columns: repeat(2, 1fr); }
+.col__h { font-size: 24px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 12px; color: var(--fg-1); }
+.slide--dark .col__h { color: var(--fg-on-dark); }
+.col__b { font-size: 15px; line-height: 1.5; color: var(--fg-2); margin: 0; }
+.slide--dark .col__b { color: var(--fg-on-dark-2); }
+.col__rule { height: 1px; background: var(--line); margin: 22px 0 12px; }
+.col__kicker { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-ink); margin: 0 0 4px; }
+.col__cap { font-size: 14px; color: var(--fg-1); margin: 0; }
+
+/* ---- Big stats ---- */
+.stat__n { font-size: 84px; font-weight: 300; line-height: 0.95; letter-spacing: -0.02em; color: inherit; }
+.stat__n .u { font-size: 36px; }
+.stat__c { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 12px; color: inherit; }
+.stat__s { font-size: 14px; color: var(--fg-2); margin-top: 6px; line-height: 1.4; }
+.slide--dark .stat__s, .slide--darkest .stat__s { color: var(--fg-on-dark-2); }
+
+/* ---- Cards ---- */
+.card { border-radius: 4px; padding: 26px 26px 24px; }
+.card--white { background: #fff; border: 1px solid var(--line); }
+.card--feature { background: var(--logx-pine); color: var(--fg-on-dark); }
+.card--panel { background: var(--logx-cream-2); }
+
+/* ---- Hairline rule ---- */
+.rule { height: 1px; background: var(--line); border: 0; }
+.slide--dark .rule, .slide--darkest .rule { background: var(--line-dark); }
+.rule--gold { height: 2px; background: var(--accent); }
+
+/* ---- Chips ---- */
+.chips { display: flex; flex-wrap: wrap; gap: 9px; }
+.chip { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 4px; padding: 7px 12px; color: var(--fg-2); }
+.slide--dark .chip { border-color: var(--line-dark); color: var(--fg-on-dark-2); }

@@ -1,0 +1,164 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "slides/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Lexend))/i]",
+        "message": "Font not provided by the design system. Available: Lexend."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--accent",
+      "--accent-ink",
+      "--bg",
+      "--bg-dark",
+      "--bg-darkest",
+      "--bg-panel",
+      "--fg-1",
+      "--fg-2",
+      "--fg-on-dark",
+      "--fg-on-dark-2",
+      "--font-sans",
+      "--fs-body",
+      "--fs-display",
+      "--fs-eyebrow",
+      "--fs-h1",
+      "--fs-h2",
+      "--fs-h3",
+      "--fs-small",
+      "--fs-stat",
+      "--lh-body",
+      "--lh-snug",
+      "--lh-tight",
+      "--line",
+      "--line-dark",
+      "--logx-black",
+      "--logx-cream",
+      "--logx-cream-2",
+      "--logx-gold",
+      "--logx-gold-ink",
+      "--logx-pine",
+      "--logx-pine-deep",
+      "--logx-sage",
+      "--logx-sand-line",
+      "--logx-white",
+      "--radius",
+      "--radius-lg",
+      "--radius-pill",
+      "--radius-sm",
+      "--shadow-card",
+      "--shadow-pop",
+      "--space-1",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--space-9",
+      "--tracking-eyebrow",
+      "--tracking-tight"
+    ],
+    "tokenKinds": {
+      "--logx-pine": "color",
+      "--logx-pine-deep": "color",
+      "--logx-cream": "color",
+      "--logx-cream-2": "color",
+      "--logx-sand-line": "color",
+      "--logx-gold": "color",
+      "--logx-gold-ink": "color",
+      "--logx-sage": "color",
+      "--logx-black": "color",
+      "--logx-white": "color",
+      "--bg": "color",
+      "--bg-panel": "color",
+      "--bg-dark": "color",
+      "--bg-darkest": "color",
+      "--fg-1": "color",
+      "--fg-2": "color",
+      "--fg-on-dark": "color",
+      "--fg-on-dark-2": "color",
+      "--accent": "color",
+      "--accent-ink": "color",
+      "--line": "color",
+      "--line-dark": "color",
+      "--font-sans": "font",
+      "--fs-display": "other",
+      "--fs-stat": "other",
+      "--fs-h1": "spacing",
+      "--fs-h2": "spacing",
+      "--fs-h3": "spacing",
+      "--fs-body": "spacing",
+      "--fs-small": "spacing",
+      "--fs-eyebrow": "spacing",
+      "--lh-tight": "other",
+      "--lh-snug": "other",
+      "--lh-body": "other",
+      "--tracking-eyebrow": "font",
+      "--tracking-tight": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--space-9": "spacing",
+      "--radius-sm": "radius",
+      "--radius": "radius",
+      "--radius-lg": "radius",
+      "--radius-pill": "radius",
+      "--shadow-card": "shadow",
+      "--shadow-pop": "shadow"
+    },
+    "fontFamilies": [
+      "Lexend"
+    ]
+  }
+}

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="_ds/logx-design-system-652f9ff8-9d6e-419c-8863-f1644b280dcd/colors_and_type.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    @keyframes nsPulse{0%{box-shadow:0 0 0 0 rgba(63,125,94,.45)}70%{box-shadow:0 0 0 5px rgba(63,125,94,0)}100%{box-shadow:0 0 0 0 rgba(63,125,94,0)}}
+    @keyframes nsFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+</helmet>
+
+<template id="__bundler_thumbnail" data-bg-color="#1f3a2e">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#1f3a2e"></rect>
+    <text x="50" y="46" text-anchor="middle" fill="#d6c89a" font-family="sans-serif" font-weight="700" font-size="20">+€5.0M</text>
+    <path d="M28 64 H58" stroke="#3f7d5e" stroke-width="3" fill="none"></path>
+    <path d="M54 60 L60 64 L54 68 Z" fill="#3f7d5e"></path>
+  </svg>
+</template>
+
+<div style="position: relative; width: 100%; display: flex; align-items: center; justify-content: center; padding: 36px 30px; box-sizing: border-box; font-family: 'Lexend',system-ui,sans-serif; font-weight: 500">
+  <div style="position:relative;width:100%;max-width:1180px">
+
+    <!-- app window -->
+    <div style="display:flex;background:#faf7f1;border-radius:14px;overflow:hidden;box-shadow:0 44px 100px -30px rgba(0,0,0,.55),0 12px 30px -16px rgba(0,0,0,.36);border:1px solid rgba(255,255,255,.06)">
+
+      <!-- sidebar -->
+      <aside style="width:198px;flex-shrink:0;background:#ffffff;border-right:1px solid #ece4d4;padding:18px 12px;display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;padding:2px 8px 16px">
+          <span style="font-weight:700;font-size:17px;letter-spacing:-.02em;color:#1a2620">Rudd<span style="color:#3f7d5e">er</span></span>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#9a9f95;padding:6px 10px"><br></div>
+        <nav style="display:flex;flex-direction:column;gap:1px">
+          <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><path d="M3 3v18h18"></path><rect x="7" y="11" width="3" height="6"></rect><rect x="12" y="7" width="3" height="10"></rect><rect x="17" y="13" width="3" height="4"></rect></svg>
+            <span style="font-size: 12px; font-weight: 400; color: #5a6660; letter-spacing: -.005em">Cockpit</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><path d="M3 9 4.5 4h15L21 9"></path><path d="M4 9v10h16V9"></path><path d="M9 19v-5h6v5"></path></svg>
+            <span style="font-size: 12px; font-weight: 400; color: #5a6660; letter-spacing: -.005em">Network</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 3v18"></path></svg>
+            <span style="font-size: 12px; font-weight: 400; color: #5a6660; letter-spacing: -.005em">Assortment</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px;background:#efe9dc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1a2620" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path><path d="M3 21v-5h5"></path></svg>
+            <span style="font-size:12px;font-weight:600;color:#1a2620;letter-spacing:-.005em">Rebalancing</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <span style="font-size: 12px; font-weight: 400; color: #5a6660; letter-spacing: -.005em">Field signal</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><circle cx="6" cy="6" r="2.4"></circle><circle cx="6" cy="18" r="2.4"></circle><circle cx="18" cy="9" r="2.4"></circle><path d="M6 8.4v7.2M8.4 7.4A6 6 0 0 0 15.4 9"></path></svg>
+            <span style="font-size: 12px; font-weight: 400; color: #5a6660; letter-spacing: -.005em">Memory</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span style="font-size: 12px; font-weight: 400; color: #5a6660; letter-spacing: -.005em">Rules library</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:7px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5a6660" stroke-width="1.8" style="width:15px;height:15px;flex-shrink:0"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"></path></svg>
+            <span style="font-size: 12px; font-weight: 400; color: #5a6660; letter-spacing: -.005em">Settings</span>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- main -->
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+        <div style="height:52px;display:flex;align-items:center;gap:10px;padding:0 22px;border-bottom:1px solid #ece4d4">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#9a9f95;letter-spacing:.03em">Cockpit · <span style="color:#1a2620;font-weight:600">Rebalancing</span> · EMEA</span>
+          <span style="margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#5a6660;border:1px solid #ece4d4;border-radius:999px;padding:4px 11px">
+            <span style="width:6px;height:6px;border-radius:999px;background:#3f7d5e;animation:nsPulse 2.2s infinite"></span>Live · Q2 2026
+          </span>
+        </div>
+
+        <div style="padding:22px 24px 24px;display:flex;flex-direction:column;gap:16px">
+          <!-- header -->
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:22px">
+            <div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9a9f95">Door to door · arbitrated in €</div>
+              <h1 style="font-size:22px;font-weight:700;letter-spacing:-.02em;color:#1a2620;margin:6px 0 0;line-height:1.05">Rebalancing cockpit</h1>
+            </div>
+            <div style="display:flex;gap:8px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:#5a6660;border:1px solid #ece4d4;border-radius:8px;padding:6px 11px">All categories</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:#5a6660;border:1px solid #ece4d4;border-radius:8px;padding:6px 11px">EMEA</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:#1a2620;background:#efe9dc;border:1px solid #e4dcc8;border-radius:8px;padding:6px 11px">Q2 2026</span>
+            </div>
+          </div>
+
+          <!-- KPI row -->
+          <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:14px">
+            <!-- pine hero -->
+            <div style="background:#1f3a2e;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9fb0a6">Revenue generated · rebalancing</span>
+              <div style="font-size: 40px; font-weight: 700; color: #d6c89a; letter-spacing: -.025em; line-height: 1; margin-top: 10px">+€5.0M</div>
+              <div style="display:flex;gap:14px;margin-top:18px">
+                <div><div style="font-size:11px;color:#9fb0a6;white-space:nowrap">Women's RTW</div><div style="font-size:18px;font-weight:600;color:#faf7f1;white-space:nowrap">+€2.4M</div></div>
+                <div style="width:1px;background:rgba(255,255,255,.18)"></div>
+                <div><div style="font-size:11px;color:#9fb0a6;white-space:nowrap">Women's Shoes</div><div style="font-size:18px;font-weight:600;color:#faf7f1;white-space:nowrap">+€1.6M</div></div>
+                <div style="width:1px;background:rgba(255,255,255,.18)"></div>
+                <div><div style="font-size:11px;color:#9fb0a6;white-space:nowrap">Men's RTW</div><div style="font-size:18px;font-weight:600;color:#faf7f1;white-space:nowrap">+€1.0M</div></div>
+              </div>
+            </div>
+            <!-- conversion -->
+            <div style="background:#ffffff;border:1px solid #ece4d4;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9a9f95">Conversion · sold / received</span>
+              <div style="font-size: 40px; font-weight: 700; color: #3f7d5e; letter-spacing: -.025em; line-height: 1; margin-top: 10px">70%</div>
+              <div style="display:flex;gap:14px;margin-top:18px">
+                <div><div style="font-size:11px;color:#5a6660;white-space:nowrap">Women's RTW</div><div style="font-size:18px;font-weight:600;color:#3f7d5e">78%</div></div>
+                <div style="width:1px;background:#ece4d4"></div>
+                <div><div style="font-size:11px;color:#5a6660;white-space:nowrap">Women's Shoes</div><div style="font-size:18px;font-weight:600;color:#3f7d5e">72%</div></div>
+                <div style="width:1px;background:#ece4d4"></div>
+                <div><div style="font-size:11px;color:#5a6660;white-space:nowrap">Men's RTW</div><div style="font-size:18px;font-weight:600;color:#b8863c">52%</div></div>
+              </div>
+            </div>
+            <!-- units -->
+            <div style="background:#ffffff;border:1px solid #ece4d4;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9a9f95">Units rebalanced · this quarter</span>
+              <div style="font-size: 40px; font-weight: 700; color: #1a2620; letter-spacing: -.025em; line-height: 1; margin-top: 10px">430<span style="font-size:24px;font-weight:600"> u</span></div>
+              <div style="margin-top:18px">
+                <div style="display:flex;height:13px;border-radius:999px;overflow:hidden;gap:2px">
+                  <div style="width:74%;background:#3f7d5e"></div><div style="width:26%;background:#eef0ea"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;margin-top:9px;font-size:11.5px">
+                  <span style="color:#1a2620"><b style="color:#3f7d5e">320u</b> sold</span>
+                  <span style="color:#5a6660"><b style="color:#1a2620">110u</b> still in stock</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- lower zone · SKU decisions + door-to-door moves -->
+          <div style="display:grid;grid-template-columns:.92fr 1.28fr;gap:14px;align-items:start">
+
+          <!-- SKU decisions (simplified) -->
+          <div style="background:#ffffff;border:1px solid #ece4d4;border-radius:14px;overflow:hidden">
+            <div style="display:flex;align-items:center;gap:10px;padding:15px 20px;border-bottom:1px solid #ece4d4">
+              <span style="font-size:15px;font-weight:600;color:#1a2620">Top rebalancing decisions · by SKU</span>
+            </div>
+            <div style="padding:2px 20px 14px">
+              <div style="display:grid;grid-template-columns:1fr 44px 70px 42px;gap:10px;padding:11px 0 8px;border-bottom:1px solid #f2ecdf">
+                <span></span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95;text-align:right">Units</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95;text-align:right">Revenue</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95;text-align:right">Conv</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:7px;padding:12px 0 2px;font-size:13px;font-weight:600;color:#3f7d5e">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#3f7d5e" stroke-width="2" style="width:14px;height:14px"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 8h4v4"/></svg>Best
+              </div>
+              <sc-for list="{{ best }}" as="r" hint-placeholder-count="5">
+                <div style="display:grid;grid-template-columns:1fr 44px 70px 42px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #f7f2e8">
+                  <span style="font-size:13.5px;font-weight:600;color:#1a2620;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.name }}</span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5a6660;text-align:right">{{ r.units }}</span>
+                  <span style="font-size:13.5px;font-weight:700;color:#1a2620;text-align:right">{{ r.rev }}</span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:#3f7d5e;text-align:right">{{ r.conv }}</span>
+                </div>
+              </sc-for>
+              <div style="display:flex;align-items:center;gap:7px;padding:14px 0 2px;margin-top:6px;border-top:1px solid #f2ecdf;font-size:13px;font-weight:600;color:#b8863c">Slow</div>
+              <sc-for list="{{ slow }}" as="r" hint-placeholder-count="5">
+                <div style="display:grid;grid-template-columns:1fr 44px 70px 42px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #f7f2e8">
+                  <span style="font-size:13.5px;font-weight:600;color:#1a2620;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.name }}</span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5a6660;text-align:right">{{ r.units }}</span>
+                  <span style="font-size:13.5px;font-weight:700;color:#1a2620;text-align:right">{{ r.rev }}</span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:#b0503a;text-align:right">{{ r.conv }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <!-- door-to-door moves -->
+          <div style="background:#ffffff;border:1px solid #ece4d4;border-radius:14px;overflow:hidden">
+            <div style="display:flex;align-items:center;gap:10px;padding:15px 22px;border-bottom:1px solid #ece4d4">
+              <span style="font-size:15px;font-weight:600;color:#1a2620">Top moves · door to door</span>
+              <span style="margin-left:auto;font-size:12.5px;color:#5a6660">Requested <b style="color:#1a2620">500</b> → executed <b style="color:#3f7d5e">430</b> · <b style="color:#3f7d5e">86%</b></span>
+            </div>
+            <div style="padding:6px 22px 10px">
+              <div style="position:relative;height:8px;background:#eef0ea;border-radius:999px;margin:10px 0 6px"><div style="position:absolute;inset:0;width:86%;background:#3f7d5e;border-radius:999px"></div></div>
+            </div>
+            <div style="padding:0 22px 8px">
+              <div style="display:grid;grid-template-columns:22px 1fr 132px 92px 48px;gap:14px;padding:8px 0;border-bottom:1px solid #f2ecdf">
+                <span></span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95">Move</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95;text-align:right">Units</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95;text-align:right">Revenue</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9a9f95;text-align:right">Conv</span>
+              </div>
+              <sc-for list="{{ moves }}" as="m" hint-placeholder-count="5">
+                <div style="display: grid; grid-template-columns: 22px 1fr 132px 92px 48px; gap: 14px; align-items: center; padding: 11px 0; border-bottom: 1px solid #f7f2e8; font-weight: 300">
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;color:#9a9f95">{{ m.rank }}</span>
+                  <span style="display:flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600;color:#1a2620;white-space:nowrap">
+                    <span style="font-weight: 300">{{ m.from }}</span>
+                    <span style="color:#d6c89a;font-size:15px">→</span>
+                    <span style="font-weight: 400">{{ m.to }}</span>
+                  </span>
+                  <span style="display:flex;align-items:center;gap:8px;justify-content:flex-end">
+                    <span style="width:46px;height:6px;background:#eef0ea;border-radius:999px;overflow:hidden"><span style="{{ m.barStyle }}"></span></span>
+                    <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;color:#1a2620;width:34px;text-align:right">{{ m.units }}</span>
+                  </span>
+                  <span style="font-size:14.5px;font-weight:700;color:#1a2620;text-align:right">{{ m.rev }}</span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;color:#3f7d5e;text-align:right">{{ m.conv }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- floating queued move -->
+    <div style="position:absolute;top:-26px;right:-26px;z-index:6;background:#14211b;border:1px solid rgba(214,200,154,.26);border-radius:13px;padding:15px 18px;min-width:272px;box-shadow:0 30px 64px -18px rgba(0,0,0,.55);animation:nsFloat 6s ease-in-out infinite">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+        <span style="width:8px;height:8px;background:#d6c89a"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#d6c89a">Next move · queued</span>
+      </div>
+      <div style="font-size: 15px; font-weight: 500; color: #faf7f1; letter-spacing: -.01em">Auvenne<span style="color:#d6c89a;margin:0 5px">→</span>Corvane</div>
+      <div style="display:flex;align-items:baseline;gap:9px;margin-top:9px">
+        <span style="font-size:25px;font-weight:300;color:#d6c89a;letter-spacing:-.02em">+€41,520</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#9fb0a6">expected · 2-wk lead</span>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:620}}">
+class Component extends DCLogic {
+  renderVals(){
+    const raw=[
+      {from:'Verenne', to:'Calisse', u:140, rev:'+€110k', conv:'85%'},
+      {from:'Ostenne', to:'Belrive', u:90,  rev:'+€100k', conv:'81%'},
+      {from:'Marolme', to:'Ardelle', u:120, rev:'+€95k',  conv:'77%'},
+      {from:'Sennac',  to:'Corvane', u:110, rev:'+€88k',  conv:'74%'},
+      {from:'Vellance',to:'Lirenne', u:80,  rev:'+€80k',  conv:'70%'}
+    ];
+    const mx=Math.max(...raw.map(r=>r.u));
+    const moves=raw.map((r,i)=>({
+      rank:String(i+1),
+      from:r.from, to:r.to, units:String(r.u), rev:r.rev, conv:r.conv,
+      barStyle:`display:block;height:100%;width:${Math.round(r.u/mx*100)}%;background:#3f7d5e;border-radius:999px`
+    }));
+    const best=[
+      {name:'Jacket JEHAZ #2451', units:'140u', rev:'+€110k', conv:'85%'},
+      {name:'Pump SHKQR #2890',   units:'90u',  rev:'+€100k', conv:'81%'},
+      {name:'Blazer JEMRT #2317', units:'120u', rev:'+€95k',  conv:'77%'}
+    ];
+    const slow=[
+      {name:'Coat CMRTU #2702',   units:'40u', rev:'+€7.0k', conv:'25%'},
+      {name:'Skirt SKWZT #2205',  units:'75u', rev:'+€7.5k', conv:'28%'},
+      {name:'Sandal SHZRN #2118', units:'60u', rev:'+€8.0k', conv:'31%'}
+    ];
+    return { moves, best, slow };
+  }
+}
+</script>
+</body>
+</html>
